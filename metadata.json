@@ -1,0 +1,7 @@
+{
+  "name": "Milan Style Muse - Fashion Consultancy",
+  "description": "An elegant fashion consultancy platform for Turkish influencers in Milan, featuring AI-powered style guides, curated store paths, and personal shopping experiences.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

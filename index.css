@@ -1,0 +1,404 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   MILANESE ELEGANCE - Fashion Consultancy Styles
+   Warm, sophisticated aesthetic inspired by Italian luxury
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   CSS CUSTOM PROPERTIES
+   ───────────────────────────────────────────────────────────────────────────── */
+:root {
+  /* Milanese Warm Palette */
+  --bg-cream: #FAF8F5;
+  --bg-warm: #F5F0EA;
+  --bg-soft: #EDE8E1;
+  --bg-card: #FFFFFF;
+  --bg-elevated: #FFFFFE;
+  
+  /* Text Colors */
+  --text-primary: #2C2825;
+  --text-secondary: #5C554D;
+  --text-muted: #8C847A;
+  --text-light: #AEA69C;
+  
+  /* Accent Colors - Terracotta & Champagne */
+  --accent-terracotta: #C4A484;
+  --accent-terracotta-dark: #A88B6C;
+  --accent-champagne: #C5A059;
+  --accent-rose: #D4A5A5;
+  --accent-sage: #9CAF94;
+  --accent-azure: #8FAABE;
+  
+  /* Borders & Shadows */
+  --border-light: rgba(44, 40, 37, 0.06);
+  --border-medium: rgba(44, 40, 37, 0.1);
+  --border-strong: rgba(44, 40, 37, 0.15);
+  --shadow-soft: 0 2px 20px rgba(44, 40, 37, 0.04);
+  --shadow-medium: 0 8px 40px rgba(44, 40, 37, 0.06);
+  --shadow-elevated: 0 20px 60px rgba(44, 40, 37, 0.08);
+  
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', 'Georgia', serif;
+  --font-sans: 'Montserrat', 'Helvetica Neue', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+  
+  /* Animation */
+  --ease-elegant: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   BASE STYLES
+   ───────────────────────────────────────────────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-cream);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   TYPOGRAPHY SYSTEM
+   ───────────────────────────────────────────────────────────────────────────── */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Editorial Headlines */
+.heading-hero {
+  font-family: var(--font-serif);
+  font-size: clamp(3.5rem, 10vw, 9rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.heading-display {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.heading-section {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.15;
+}
+
+/* Labels & Body */
+.label-micro {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.label-small {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.body-elegant {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   GLASS & CARD SYSTEM
+   ───────────────────────────────────────────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-soft);
+}
+
+.glass-warm {
+  background: rgba(250, 248, 245, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border-medium);
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.5s var(--ease-elegant);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-elevated);
+  transform: translateY(-4px);
+  border-color: var(--border-medium);
+}
+
+.card-warm {
+  background: var(--bg-warm);
+  border: 1px solid var(--border-light);
+  border-radius: 1.5rem;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   BENTO GRID SYSTEM
+   ───────────────────────────────────────────────────────────────────────────── */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .bento-grid {
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bento-grid {
+    gap: 1.75rem;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   IMAGE STYLES
+   ───────────────────────────────────────────────────────────────────────────── */
+.img-editorial {
+  filter: saturate(0.92) contrast(1.02) brightness(1.02);
+}
+
+.img-warm {
+  filter: sepia(0.05) saturate(0.95);
+}
+
+.img-cover {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   DECORATIVE ELEMENTS
+   ───────────────────────────────────────────────────────────────────────────── */
+.gradient-warm {
+  background: linear-gradient(
+    135deg,
+    var(--bg-cream) 0%,
+    var(--bg-warm) 50%,
+    var(--bg-soft) 100%
+  );
+}
+
+.gradient-accent {
+  background: linear-gradient(
+    135deg,
+    var(--accent-terracotta) 0%,
+    var(--accent-champagne) 100%
+  );
+}
+
+.divider {
+  height: 1px;
+  background: var(--border-light);
+  width: 100%;
+}
+
+.divider-vertical {
+  width: 1px;
+  background: var(--border-light);
+  height: 100%;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   BUTTONS
+   ───────────────────────────────────────────────────────────────────────────── */
+.btn-primary {
+  background: var(--text-primary);
+  color: var(--bg-cream);
+  padding: 1rem 2rem;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.4s var(--ease-elegant);
+}
+
+.btn-primary:hover {
+  background: var(--accent-terracotta-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  padding: 1rem 2rem;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border: 1px solid var(--border-medium);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.4s var(--ease-elegant);
+}
+
+.btn-secondary:hover {
+  background: var(--text-primary);
+  color: var(--bg-cream);
+  border-color: var(--text-primary);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   ANIMATIONS
+   ───────────────────────────────────────────────────────────────────────────── */
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s var(--ease-elegant) forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   FORM ELEMENTS
+   ───────────────────────────────────────────────────────────────────────────── */
+select, input {
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  padding: 1rem 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  border-radius: 0.5rem;
+  outline: none;
+  transition: all 0.3s var(--ease-smooth);
+}
+
+select:focus, input:focus {
+  border-color: var(--accent-terracotta);
+  box-shadow: 0 0 0 3px rgba(196, 164, 132, 0.1);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SCROLLBAR
+   ───────────────────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-warm);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SELECTION
+   ───────────────────────────────────────────────────────────────────────────── */
+::selection {
+  background: rgba(196, 164, 132, 0.25);
+  color: var(--text-primary);
+}
+
+::-moz-selection {
+  background: rgba(196, 164, 132, 0.25);
+  color: var(--text-primary);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .heading-hero {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+  
+  .hide-mobile {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
