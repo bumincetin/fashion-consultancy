@@ -62,6 +62,54 @@ const IMAGES = {
   luxuryShopping: 'luxur.jpg',
 };
 
+// Luxury shopping tour images (cycling through luxur1, luxur2, etc.)
+const LUXURY_SHOPPING_IMAGES = [
+  '/luxur1.jpg',
+  '/luxur2.jpg',
+  '/luxur3.jpg',
+  '/luxur4.jpg',
+  '/luxur5.jpg',
+  '/luxur6.jpg',
+  '/luxur7.jpg',
+];
+
+// Luxury Image Slider Component
+const LuxuryImageSlider: React.FC<{ images: string[] }> = ({ images }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (images.length <= 1) return;
+    
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 4000); // Change every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  return (
+    <div className="absolute inset-0 w-full h-full">
+      {images.map((src, index) => (
+        <motion.img
+          key={index}
+          src={src}
+          alt={`Luxury Shopping Experience in Milan ${index + 1}`}
+          initial={false}
+          animate={{ 
+            opacity: index === currentIndex ? 1 : 0,
+            scale: index === currentIndex ? 1 : 1.05
+          }}
+          transition={{ 
+            duration: 1,
+            ease: [0.16, 1, 0.3, 1]
+          }}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      ))}
+    </div>
+  );
+};
+
 // Animated Image Component with Parallax
 const ParallaxImage: React.FC<{
   src: string;
@@ -345,13 +393,9 @@ const App: React.FC = () => {
                       viewport={{ once: true }}
                       className="col-span-12 md:col-span-8 relative overflow-hidden rounded-3xl group min-h-[500px]"
                     >
-                      <ParallaxImage 
-                        src={IMAGES.luxuryShopping}
-                        alt="Luxury Shopping Experience in Milan"
-                        className="absolute inset-0"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#2C2825]/90 via-[#2C2825]/30 to-transparent" />
-                      <div className="absolute bottom-0 left-0 right-0 p-10 md:p-12">
+                      <LuxuryImageSlider images={LUXURY_SHOPPING_IMAGES} />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#2C2825]/90 via-[#2C2825]/30 to-transparent z-10" />
+                      <div className="absolute bottom-0 left-0 right-0 p-10 md:p-12 z-20">
                         <span className="label-micro block mb-4 text-[#C4A484]">{t.services.premium}</span>
                         <h3 className="text-3xl md:text-4xl font-serif italic text-white mb-4">
                           {t.services.shoppingTours}
