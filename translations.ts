@@ -79,27 +79,27 @@ export const TRANSLATIONS: Record<Language, any> = {
       label: 'Client Stories',
       testimonials: [
         {
-          quote: '"Gülizar transformed my Milan shopping experience into something truly magical. Her knowledge of the luxury fashion scene and VIP access to exclusive boutiques was incredible."',
+          quote: '"Gulizar transformed my Milan shopping experience into something truly magical. Her knowledge of the luxury fashion scene and VIP access to exclusive boutiques was incredible."',
           author: 'Elena Rossi',
           role: 'Marketing Manager, Milano'
         },
         {
-          quote: '"Working with Gülizar was like having a personal fashion curator. She understood my style immediately and introduced me to pieces I never would have found on my own. The attention to detail is unmatched."',
+          quote: '"Working with Gulizar was like having a personal fashion curator. She understood my style immediately and introduced me to pieces I never would have found on my own. The attention to detail is unmatched."',
           author: 'Sophia Chen',
           role: 'Fashion Entrepreneur, London'
         },
         {
-          quote: '"As someone new to Milan, Gülizar\'s expertise was invaluable. She took me to the most exclusive ateliers and helped me build a wardrobe that perfectly reflects my personality. Worth every euro!"',
-          author: 'Isabella Martinez',
-          role: 'Investment Banker, New York'
+          quote: '"As someone new to Milan, Gulizar\'s expertise was invaluable. She took me to the most exclusive ateliers and helped me build a wardrobe that perfectly reflects my personality. Worth every euro!"',
+          author: 'Muhammed El Sahli',
+          role: 'Investor, Dubai'
         },
         {
-          quote: '"The luxury shopping tour exceeded all expectations. Gülizar\'s connections in the fashion world opened doors I didn\'t even know existed. A truly bespoke experience."',
+          quote: '"The luxury shopping tour exceeded all expectations. Gulizar\'s connections in the fashion world opened doors I didn\'t even know existed. A truly bespoke experience."',
           author: 'Charlotte Dubois',
           role: 'Art Collector, Paris'
         },
         {
-          quote: '"Gülizar doesn\'t just help you shop—she teaches you about Italian craftsmanship, the history of fashion houses, and how to invest in pieces that last. An education in luxury."',
+          quote: '"Gulizar doesn\'t just help you shop—she teaches you about Italian craftsmanship, the history of fashion houses, and how to invest in pieces that last. An education in luxury."',
           author: 'Amara Singh',
           role: 'Tech Executive, San Francisco'
         }
@@ -148,7 +148,7 @@ export const TRANSLATIONS: Record<Language, any> = {
       philosophy: 'True luxury is not about logos – it\'s about quality, craftsmanship, and pieces that make you feel extraordinary.',
       philosophyDesc: 'I believe that the most beautiful wardrobe is one built with intention. Every piece should be an investment in yourself, crafted by master artisans and designed to last generations. My mission is to connect you with the finest Italian fashion has to offer.',
       specialLabel: 'What Makes It Special',
-      specialTitle: 'The Gülizar Difference',
+      specialTitle: 'The Gulizar Difference',
       specialDesc: 'My approach combines three essential elements that set this experience apart from traditional shopping.',
       specialFeatures: [
         {
@@ -198,7 +198,7 @@ export const TRANSLATIONS: Record<Language, any> = {
       location: 'Location',
       remote: 'Remote',
       follow: 'Follow',
-      reserved: '© 2024 Gülizar Ermiş. All rights reserved.',
+      reserved: '© 2024 Vestiliza. All rights reserved.',
       crafted: 'Crafted with passion in Milano'
     },
     booking: {
@@ -208,10 +208,14 @@ export const TRANSLATIONS: Record<Language, any> = {
       yourDetails: 'Your Details',
       yourName: 'Your Name',
       emailAddress: 'Email Address',
+      selectDate: 'Select Date',
+      selectTime: 'Select Time',
+      checkingAvailability: 'Checking availability...',
+      notAvailable: 'This time slot is not available. Please select another time.',
       confirm: 'Request Appointment',
-      loading: 'Preparing your confirmation...',
+      loading: 'Sending your booking request...',
       success: 'Grazie Mille',
-      successDesc: "We'll be in touch within 24 hours to confirm your booking.",
+      successDesc: "Your booking request has been sent! Gülizar has received your request and you'll receive a confirmation email shortly. She will respond within 24 hours.",
       close: 'Close',
       services: {
         shopping: {
@@ -310,27 +314,27 @@ export const TRANSLATIONS: Record<Language, any> = {
       label: 'Müşteri Hikayeleri',
       testimonials: [
         {
-          quote: '"Gülizar Milano alışveriş deneyimimi gerçekten büyülü bir şeye dönüştürdü. Lüks moda dünyası hakkındaki bilgisi ve özel butiklere VIP erişimi inanılmazdı."',
+          quote: '"Gulizar Milano alışveriş deneyimimi gerçekten büyülü bir şeye dönüştürdü. Lüks moda dünyası hakkındaki bilgisi ve özel butiklere VIP erişimi inanılmazdı."',
           author: 'Elena Rossi',
           role: 'Pazarlama Müdürü, Milano'
         },
         {
-          quote: '"Gülizar ile çalışmak kişisel bir moda küratörüne sahip olmak gibiydi. Stilimi hemen anladı ve kendi başıma asla bulamayacağım parçalarla tanıştırdı. Detaylara verilen özen eşsiz."',
+          quote: '"Gulizar ile çalışmak kişisel bir moda küratörüne sahip olmak gibiydi. Stilimi hemen anladı ve kendi başıma asla bulamayacağım parçalarla tanıştırdı. Detaylara verilen özen eşsiz."',
           author: 'Sophia Chen',
           role: 'Moda Girişimcisi, Londra'
         },
         {
-          quote: '"Milano\'ya yeni biri olarak Gülizar\'ın uzmanlığı paha biçilmezdi. Beni en özel atölyelere götürdü ve kişiliğimi mükemmel şekilde yansıtan bir gardırop oluşturmama yardımcı oldu. Her kuruşuna değer!"',
-          author: 'Isabella Martinez',
-          role: 'Yatırım Bankacısı, New York'
+          quote: '"Milano\'ya yeni biri olarak Gulizar\'ın uzmanlığı paha biçilmezdi. Beni en özel atölyelere götürdü ve kişiliğimi mükemmel şekilde yansıtan bir gardırop oluşturmama yardımcı oldu. Her kuruşuna değer!"',
+          author: 'Muhammed El Sahli',
+          role: 'Investor, Dubai'
         },
         {
-          quote: '"Lüks alışveriş turu tüm beklentileri aştı. Gülizar\'ın moda dünyasındaki bağlantıları varlığından bile haberdar olmadığım kapıları açtı. Gerçekten özel bir deneyim."',
+          quote: '"Lüks alışveriş turu tüm beklentileri aştı. Gulizar\'ın moda dünyasındaki bağlantıları varlığından bile haberdar olmadığım kapıları açtı. Gerçekten özel bir deneyim."',
           author: 'Charlotte Dubois',
           role: 'Sanat Koleksiyoncusu, Paris'
         },
         {
-          quote: '"Gülizar sadece alışveriş yapmanıza yardımcı olmuyor—size İtalyan zanaatkarlığı, moda evlerinin tarihi ve uzun süre dayanacak parçalara nasıl yatırım yapılacağını öğretiyor. Lüks konusunda bir eğitim."',
+          quote: '"Gulizar sadece alışveriş yapmanıza yardımcı olmuyor—size İtalyan zanaatkarlığı, moda evlerinin tarihi ve uzun süre dayanacak parçalara nasıl yatırım yapılacağını öğretiyor. Lüks konusunda bir eğitim."',
           author: 'Amara Singh',
           role: 'Teknoloji Yöneticisi, San Francisco'
         }
@@ -379,7 +383,7 @@ export const TRANSLATIONS: Record<Language, any> = {
       philosophy: 'Gerçek lüks logolarla ilgili değil – kalite, işçilik ve sizi olağanüstü hissettiren parçalarla ilgilidir.',
       philosophyDesc: 'En güzel gardırobun niyetle inşa edilmiş olan olduğuna inanıyorum. Her parça kendinize bir yatırım olmalı, usta zanaatkarlar tarafından üretilmeli ve nesiller boyu sürecek şekilde tasarlanmalıdır. Misyonum, sizi İtalyan modasının sunduğu en iyi şeylerle buluşturmaktır.',
       specialLabel: 'Neyi Özel Kılar',
-      specialTitle: 'Gülizar Farkı',
+      specialTitle: 'Gulizar Farkı',
       specialDesc: 'Yaklaşımım, bu deneyimi geleneksel alışverişten ayıran üç temel unsuru birleştirir.',
       specialFeatures: [
         {
@@ -429,7 +433,7 @@ export const TRANSLATIONS: Record<Language, any> = {
       location: 'Konum',
       remote: 'Uzaktan',
       follow: 'Takip Et',
-      reserved: '© 2024 Gülizar Ermiş. Tüm hakları saklıdır.',
+      reserved: '© 2024 Vestiliza. Tüm hakları saklıdır.',
       crafted: "Milano'da tutkuyla tasarlandı"
     },
     booking: {
@@ -439,10 +443,14 @@ export const TRANSLATIONS: Record<Language, any> = {
       yourDetails: 'Bilgileriniz',
       yourName: 'Adınız',
       emailAddress: 'E-posta Adresi',
+      selectDate: 'Tarih Seçin',
+      selectTime: 'Saat Seçin',
+      checkingAvailability: 'Müsaitlik kontrol ediliyor...',
+      notAvailable: 'Bu zaman dilimi müsait değil. Lütfen başka bir saat seçin.',
       confirm: 'Randevu Talebi',
-      loading: 'Onayınız hazırlanıyor...',
+      loading: 'Randevu talebiniz gönderiliyor...',
       success: 'Teşekkürler',
-      successDesc: 'Randevunuzu onaylamak için 24 saat içinde sizinle iletişime geçeceğiz.',
+      successDesc: 'Randevu talebiniz gönderildi! Gülizar talebinizi aldı ve kısa süre içinde bir onay e-postası alacaksınız. 24 saat içinde yanıt verecektir.',
       close: 'Kapat',
       services: {
         shopping: {
@@ -541,27 +549,27 @@ export const TRANSLATIONS: Record<Language, any> = {
       label: 'Storie dei Clienti',
       testimonials: [
         {
-          quote: '"Gülizar ha trasformato la mia esperienza di shopping a Milano in qualcosa di veramente magico. La sua conoscenza della scena della moda di lusso e l\'accesso VIP alle boutique esclusive era incredibile."',
+          quote: '"Gulizar ha trasformato la mia esperienza di shopping a Milano in qualcosa di veramente magico. La sua conoscenza della scena della moda di lusso e l\'accesso VIP alle boutique esclusive era incredibile."',
           author: 'Elena Rossi',
           role: 'Marketing Manager, Milano'
         },
         {
-          quote: '"Lavorare con Gülizar è stato come avere un curatore di moda personale. Ha capito immediatamente il mio stile e mi ha presentato pezzi che non avrei mai trovato da sola. L\'attenzione ai dettagli è impareggiabile."',
+          quote: '"Lavorare con Gulizar è stato come avere un curatore di moda personale. Ha capito immediatamente il mio stile e mi ha presentato pezzi che non avrei mai trovato da sola. L\'attenzione ai dettagli è impareggiabile."',
           author: 'Sophia Chen',
           role: 'Imprenditrice di Moda, Londra'
         },
         {
-          quote: '"Come persona nuova a Milano, l\'esperienza di Gülizar è stata inestimabile. Mi ha portato negli atelier più esclusivi e mi ha aiutato a costruire un guardaroba che riflette perfettamente la mia personalità. Vale ogni euro!"',
-          author: 'Isabella Martinez',
-          role: 'Investment Banker, New York'
+          quote: '"Come persona nuova a Milano, l\'esperienza di Gulizar è stata inestimabile. Mi ha portato negli atelier più esclusivi e mi ha aiutato a costruire un guardaroba che riflette perfettamente la mia personalità. Vale ogni euro!"',
+          author: 'Muhammed El Sahli',
+          role: 'Investitore, Dubai'
         },
         {
-          quote: '"Il tour di shopping di lusso ha superato tutte le aspettative. Le connessioni di Gülizar nel mondo della moda hanno aperto porte che non sapevo nemmeno esistessero. Un\'esperienza veramente su misura."',
+          quote: '"Il tour di shopping di lusso ha superato tutte le aspettative. Le connessioni di Gulizar nel mondo della moda hanno aperto porte che non sapevo nemmeno esistessero. Un\'esperienza veramente su misura."',
           author: 'Charlotte Dubois',
           role: 'Collezionista d\'Arte, Parigi'
         },
         {
-          quote: '"Gülizar non ti aiuta solo a fare shopping—ti insegna l\'artigianato italiano, la storia delle case di moda e come investire in pezzi che durano. Un\'educazione nel lusso."',
+          quote: '"Gulizar non ti aiuta solo a fare shopping—ti insegna l\'artigianato italiano, la storia delle case di moda e come investire in pezzi che durano. Un\'educazione nel lusso."',
           author: 'Amara Singh',
           role: 'Dirigente Tech, San Francisco'
         }
@@ -610,7 +618,7 @@ export const TRANSLATIONS: Record<Language, any> = {
       philosophy: 'Il vero lusso non riguarda i loghi – riguarda la qualità, l\'artigianato e i pezzi che ti fanno sentire straordinaria.',
       philosophyDesc: 'Credo che il guardaroba più bello sia quello costruito con intenzione. Ogni pezzo dovrebbe essere un investimento su te stessa, realizzato da maestri artigiani e progettato per durare generazioni. La mia missione è connetterti con il meglio che la moda italiana ha da offrire.',
       specialLabel: 'Cosa Lo Rende Speciale',
-      specialTitle: 'La Differenza Gülizar',
+      specialTitle: 'La Differenza Gulizar',
       specialDesc: 'Il mio approccio combina tre elementi essenziali che distinguono questa esperienza dallo shopping tradizionale.',
       specialFeatures: [
         {
@@ -660,7 +668,7 @@ export const TRANSLATIONS: Record<Language, any> = {
       location: 'Posizione',
       remote: 'Remoto',
       follow: 'Seguici',
-      reserved: '© 2024 Gülizar Ermiş. Tutti i diritti riservati.',
+      reserved: '© 2024 Vestiliza. Tutti i diritti riservati.',
       crafted: 'Creato con passione a Milano'
     },
     booking: {
@@ -670,10 +678,14 @@ export const TRANSLATIONS: Record<Language, any> = {
       yourDetails: 'I Tuoi Dettagli',
       yourName: 'Il Tuo Nome',
       emailAddress: 'Indirizzo Email',
+      selectDate: 'Seleziona Data',
+      selectTime: 'Seleziona Ora',
+      checkingAvailability: 'Controllo disponibilità...',
+      notAvailable: 'Questo orario non è disponibile. Si prega di selezionare un altro orario.',
       confirm: 'Richiedi Appuntamento',
-      loading: 'Preparando la conferma...',
+      loading: 'Invio della richiesta di prenotazione...',
       success: 'Grazie Mille',
-      successDesc: 'Ti contatteremo entro 24 ore per confermare la prenotazione.',
+      successDesc: 'La tua richiesta di prenotazione è stata inviata! Gülizar ha ricevuto la tua richiesta e riceverai un\'email di conferma a breve. Risponderà entro 24 ore.',
       close: 'Chiudi',
       services: {
         shopping: {

@@ -140,8 +140,7 @@ const TestimonialSlider: React.FC<{ testimonials: any[] }> = ({ testimonials }) 
           <blockquote className="text-2xl sm:text-3xl md:text-4xl font-serif italic text-white/90 leading-relaxed mb-10 px-4">
             {testimonials[currentIndex].quote}
           </blockquote>
-          <div className="flex items-center justify-center gap-4">
-            <div className="w-12 h-12 rounded-full bg-[#C4A484]/20" />
+          <div className="flex items-center justify-center">
             <div className="text-left">
               <p className="text-white font-medium">{testimonials[currentIndex].author}</p>
               <p className="text-white/50 text-sm">{testimonials[currentIndex].role}</p>
@@ -858,6 +857,15 @@ const App: React.FC = () => {
       {/* Bottom Glass Navbar */}
       <nav className="fixed bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-[100] w-[calc(100%-2rem)] sm:w-auto max-w-[95vw]">
         <div className="glass px-2 sm:px-3 py-2 sm:py-2.5 rounded-full flex items-center justify-center gap-0.5 sm:gap-1 shadow-lg">
+          <img 
+            src="/logogulizar.png" 
+            alt="Gülizar Ermiş Logo" 
+            className="h-6 sm:h-8 w-auto object-contain mr-1 sm:mr-2"
+            style={{
+              filter: 'contrast(1.1) brightness(0.95)',
+              mixBlendMode: 'multiply'
+            }}
+          />
           <NavButton tab="home" label={t.nav.aperitivo} />
           <NavButton tab="stores" label={t.nav.stores} />
           <NavButton tab="methodology" label={t.nav.methodology} />
@@ -870,13 +878,27 @@ const App: React.FC = () => {
             <span className="sm:hidden">Book</span>
           </button>
           
-          <div className="hidden md:flex gap-2 px-3 border-l border-[#2C2825]/10 ml-2">
+          <div className="hidden md:flex gap-2 px-3 border-l border-[#2C2825]/10 ml-2 items-center">
             {(['en', 'tr', 'it'] as Language[]).map(l => (
               <button 
                 key={l}
                 onClick={() => changeLanguage(l)}
-                className={`text-[9px] font-mono uppercase ${lang === l ? 'text-[#2C2825]' : 'text-[#8C847A] hover:text-[#2C2825]'} transition-colors`}
+                className={`text-[9px] font-mono uppercase flex items-center gap-1 px-2 py-1 rounded-full transition-all ${
+                  lang === l 
+                    ? 'bg-[#2C2825] text-[#FAF8F5]' 
+                    : 'text-[#8C847A] hover:text-[#2C2825] hover:bg-[#2C2825]/5'
+                }`}
               >
+                {lang === l && (
+                  <img 
+                    src="/logogulizar.png" 
+                    alt="Logo" 
+                    className="h-3 w-3 object-contain"
+                    style={{
+                      filter: 'brightness(0) invert(1)'
+                    }}
+                  />
+                )}
                 {l}
               </button>
             ))}
@@ -902,7 +924,7 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-12 gap-10 mb-12">
             <div className="col-span-12 md:col-span-4">
-              <h2 className="text-2xl font-serif italic text-[#FAF8F5] mb-4">Gülizar Ermiş</h2>
+              <h2 className="text-2xl font-serif italic text-[#FAF8F5] mb-4">VESTILIZA, Gülizar Ermiş</h2>
               <p className="text-[#FAF8F5]/50 text-sm leading-relaxed">
                 {t.footer.desc}
               </p>
@@ -910,7 +932,7 @@ const App: React.FC = () => {
             <div className="col-span-6 md:col-span-2 md:col-start-7">
               <h4 className="label-small text-[#C4A484] mb-4">{t.footer.contact}</h4>
               <div className="space-y-2 text-sm text-[#FAF8F5]/60">
-                <p>gulizarermis20@gmail.com</p>
+                <p>vestilizamilano@gmail.com</p>
                 <p>+39 351 302 5810</p>
               </div>
             </div>
@@ -927,7 +949,7 @@ const App: React.FC = () => {
                 <a href="https://www.instagram.com/gulizarermiss/" target="_blank" rel="noopener noreferrer">
                   <Instagram size={18} className="text-[#FAF8F5]/60 hover:text-[#FAF8F5] transition-colors cursor-pointer" />
                 </a>
-                <a href="mailto:gulizarermis20@gmail.com">
+                <a href="mailto:vestilizamilano@gmail.com">
                   <Mail size={18} className="text-[#FAF8F5]/60 hover:text-[#FAF8F5] transition-colors cursor-pointer" />
                 </a>
                 <Globe size={18} className="text-[#FAF8F5]/60 hover:text-[#FAF8F5] transition-colors cursor-pointer" />

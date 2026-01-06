@@ -111,7 +111,7 @@ The website supports three languages (English, Turkish, Italian) with URL-based 
 
 ## Contact
 
-- **Email**: gulizarermis20@gmail.com
+- **Email**: vestilizamilano@gmail.com
 - **Phone**: +39 351 302 5810
 - **Instagram**: [@gulizarermiss](https://www.instagram.com/gulizarermiss/)
 - **Location**: Milano, Italy
