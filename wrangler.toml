@@ -1,9 +1,6 @@
 name = "fashion-consultancy"
 compatibility_date = "2026-01-06"
 
-[site]
-bucket = "./dist"
-
-# For Cloudflare Pages, use pages_build_output_dir instead
+# Cloudflare Pages configuration
 pages_build_output_dir = "./dist"
 
