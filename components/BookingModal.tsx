@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
 import { X, Calendar, Check, ArrowRight, Mail, Loader2, Clock, MapPin } from 'lucide-react';
-import { generateConfirmationEmail } from '../services/geminiService';
 import { Language } from '../types';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TRANSLATIONS } from '../translations';
@@ -24,7 +23,6 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, lan
   const [date, setDate] = useState('');
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
-  const [emailPreview, setEmailPreview] = useState('');
   const [errors, setErrors] = useState<FormErrors>({});
 
   const t = TRANSLATIONS[lang].booking;
@@ -74,14 +72,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, lan
     e.preventDefault();
     if (!validate()) return;
     setStep('loading');
-    try {
-      const serviceName = services.find(s => s.id === selectedService)?.name || 'Fashion Service';
-      const preview = await generateConfirmationEmail({ service: serviceName, date, email }, lang);
-      setEmailPreview(preview || '');
+    
+    // Simulate booking process
+    setTimeout(() => {
       setStep('success');
-    } catch (error) {
-      setStep('success');
-    }
+    }, 1500);
   };
 
   const handleClose = () => {
@@ -216,12 +211,6 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, lan
                 </div>
                 <h3 className="text-3xl font-serif italic text-[#2C2825] mb-3">{t.success}</h3>
                 <p className="text-sm text-[#8C847A] mb-8 max-w-sm mx-auto">{t.successDesc}</p>
-                
-                {emailPreview && (
-                  <div className="bg-white p-6 rounded-xl border border-[#2C2825]/5 mb-8 text-left">
-                    <p className="text-xs text-[#5C554D] leading-relaxed whitespace-pre-wrap">{emailPreview}</p>
-                  </div>
-                )}
                 
                 <button 
                   onClick={handleClose} 

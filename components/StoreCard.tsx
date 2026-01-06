@@ -6,9 +6,17 @@ import { motion } from 'framer-motion';
 
 interface StoreCardProps {
   store: Store;
+  onBookConsultation?: () => void;
 }
 
-export const StoreCard: React.FC<StoreCardProps> = ({ store }) => {
+export const StoreCard: React.FC<StoreCardProps> = ({ store, onBookConsultation }) => {
+  const handleArrowClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (onBookConsultation) {
+      onBookConsultation();
+    }
+  };
+
   return (
     <motion.div 
       className="group cursor-pointer bg-white rounded-2xl overflow-hidden border border-[#2C2825]/5 shadow-sm hover:shadow-xl transition-all duration-700"
@@ -23,10 +31,15 @@ export const StoreCard: React.FC<StoreCardProps> = ({ store }) => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#2C2825]/70 via-transparent to-transparent opacity-80" />
         
+        {/* Clickable Arrow - Book Consultation */}
         <div className="absolute top-5 right-5">
-          <div className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0">
+          <button
+            onClick={handleArrowClick}
+            className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0 hover:bg-[#C4A484] hover:scale-110"
+            title="Book a consultation for this boutique"
+          >
             <ArrowUpRight size={16} className="text-[#2C2825]" />
-          </div>
+          </button>
         </div>
 
         <div className="absolute bottom-5 left-5 right-5">

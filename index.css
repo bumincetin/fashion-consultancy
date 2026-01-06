@@ -383,13 +383,160 @@ select:focus, input:focus {
 /* ─────────────────────────────────────────────────────────────────────────────
    RESPONSIVE
    ───────────────────────────────────────────────────────────────────────────── */
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+  .heading-display {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+  }
+  
+  .heading-section {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+  }
+}
+
+/* Mobile Styles */
 @media (max-width: 768px) {
   .heading-hero {
-    font-size: clamp(2.5rem, 12vw, 4rem);
+    font-size: clamp(2.2rem, 10vw, 3.5rem);
+    line-height: 1.05;
+  }
+  
+  .heading-display {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+  
+  .heading-section {
+    font-size: clamp(1.4rem, 6vw, 2rem);
+  }
+  
+  .body-elegant {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  
+  .label-micro {
+    font-size: 8px;
+    letter-spacing: 0.2em;
+  }
+  
+  .label-small {
+    font-size: 9px;
+    letter-spacing: 0.15em;
   }
   
   .hide-mobile {
-    display: none;
+    display: none !important;
+  }
+  
+  .show-mobile {
+    display: block !important;
+  }
+  
+  /* Card adjustments for mobile */
+  .card {
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+  
+  .card:hover {
+    transform: none;
+  }
+  
+  /* Button adjustments for mobile */
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.875rem 1.5rem;
+    font-size: 9px;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  /* Bento grid mobile */
+  .bento-grid {
+    gap: 0.75rem;
+  }
+  
+  /* Navigation mobile padding */
+  nav {
+    padding: 0.75rem 1rem;
+  }
+  
+  /* Section padding mobile */
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+  .heading-hero {
+    font-size: clamp(1.8rem, 9vw, 2.8rem);
+  }
+  
+  .heading-display {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+  
+  .heading-section {
+    font-size: clamp(1.2rem, 5vw, 1.6rem);
+  }
+  
+  .body-elegant {
+    font-size: 12px;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.75rem 1.25rem;
+    font-size: 8px;
+  }
+  
+  /* Hide non-essential elements on very small screens */
+  .hide-small-mobile {
+    display: none !important;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .card:hover {
+    transform: none;
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .btn-primary:hover,
+  .btn-secondary:hover {
+    transform: none;
+  }
+  
+  /* Increase tap targets */
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Landscape mobile */
+@media (max-width: 896px) and (orientation: landscape) {
+  .heading-hero {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+}
+
+/* Safe area insets for notched devices */
+@supports (padding-top: env(safe-area-inset-top)) {
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+  
+  nav {
+    padding-top: max(0.75rem, env(safe-area-inset-top));
   }
 }
 
@@ -400,5 +547,19 @@ select:focus, input:focus {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .glass,
+  .glass-warm {
+    background: white;
+    backdrop-filter: none;
+  }
+  
+  nav,
+  .hide-print {
+    display: none !important;
   }
 }
