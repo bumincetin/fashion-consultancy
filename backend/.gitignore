@@ -1,6 +1,7 @@
 node_modules/
 .env
 config/service-account-key.json
+config/client_secret.json
 *.log
 .DS_Store
 

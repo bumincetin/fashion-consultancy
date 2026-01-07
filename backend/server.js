@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import { calendarRoutes } from './routes/calendar.js';
 import { emailRoutes } from './routes/email.js';
 import { bookingRoutes } from './routes/booking.js';
+import { oauthRoutes } from './routes/oauth.js';
 
 dotenv.config();
 
@@ -28,6 +29,7 @@ app.get('/health', (req, res) => {
 app.use('/api/calendar', calendarRoutes);
 app.use('/api/email', emailRoutes);
 app.use('/api/booking', bookingRoutes);
+app.use('/api/oauth', oauthRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

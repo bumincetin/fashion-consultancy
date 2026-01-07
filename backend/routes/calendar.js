@@ -5,6 +5,42 @@ const router = express.Router();
 const calendarId = getCalendarId();
 
 /**
+ * GET /api/calendar/test
+ * Test calendar connection and authentication
+ */
+router.get('/test', async (req, res) => {
+  try {
+    const calendar = getCalendarClient();
+    
+    // Try to get calendar metadata to test connection
+    const response = await calendar.calendars.get({
+      calendarId: 'primary'
+    });
+    
+    res.json({
+      success: true,
+      message: 'Calendar connection successful',
+      calendar: {
+        id: response.data.id,
+        summary: response.data.summary,
+        timeZone: response.data.timeZone
+      }
+    });
+  } catch (error) {
+    console.error('Calendar test error:', error);
+    res.status(500).json({
+      success: false,
+      message: error.message || 'Failed to connect to calendar',
+      error: process.env.NODE_ENV === 'development' ? {
+        message: error.message,
+        code: error.code,
+        details: error.response?.data
+      } : undefined
+    });
+  }
+});
+
+/**
  * POST /api/calendar/check-availability
  * Check if a time slot is available
  */
@@ -19,13 +55,54 @@ router.post('/check-availability', async (req, res) => {
       });
     }
 
+    // Ensure dates are in RFC3339 format with timezone
+    // Google Calendar requires ISO 8601 format with timezone (e.g., 2024-12-20T14:00:00+01:00)
+    let formattedTimeMin = timeMin.trim();
+    let formattedTimeMax = timeMax.trim();
+    
+    // Helper to check if date has timezone
+    const hasTimezone = (str) => {
+      return str.endsWith('Z') || /[+-]\d{2}:?\d{2}$/.test(str);
+    };
+    
+    // If timezone is missing, add Europe/Rome timezone offset
+    // For simplicity, use +01:00 (winter time) - adjust if needed for DST
+    if (!hasTimezone(formattedTimeMin)) {
+      // Validate the date format first
+      if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/.test(formattedTimeMin)) {
+        return res.status(400).json({
+          available: false,
+          message: `Invalid timeMin format: "${formattedTimeMin}". Expected: 2024-12-20T14:00:00+01:00 or 2024-12-20T14:00:00`
+        });
+      }
+      // Add Europe/Rome timezone (UTC+1 in winter, UTC+2 in summer)
+      // For now, use +01:00 - you can make this dynamic based on date if needed
+      formattedTimeMin += '+01:00';
+    }
+    
+    if (!hasTimezone(formattedTimeMax)) {
+      if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/.test(formattedTimeMax)) {
+        return res.status(400).json({
+          available: false,
+          message: `Invalid timeMax format: "${formattedTimeMax}". Expected: 2024-12-20T18:00:00+01:00 or 2024-12-20T18:00:00`
+        });
+      }
+      formattedTimeMax += '+01:00';
+    }
+
+    console.log('Checking availability:', { 
+      original: { timeMin, timeMax },
+      formatted: { timeMin: formattedTimeMin, timeMax: formattedTimeMax },
+      calendarId 
+    });
+
     const calendar = getCalendarClient();
 
     // Use Freebusy API to check availability
     const response = await calendar.freebusy.query({
       requestBody: {
-        timeMin,
-        timeMax,
+        timeMin: formattedTimeMin,
+        timeMax: formattedTimeMax,
         items: [{ id: calendarId }]
       }
     });
@@ -42,9 +119,44 @@ router.post('/check-availability', async (req, res) => {
     });
   } catch (error) {
     console.error('Error checking availability:', error);
-    res.status(500).json({
+    console.error('Error details:', {
+      message: error.message,
+      code: error.code,
+      response: error.response?.data
+    });
+    
+    // Provide more helpful error messages
+    let errorMessage = 'Failed to check availability';
+    let statusCode = 500;
+    
+    if (error.message?.includes('No Google Calendar authentication')) {
+      errorMessage = 'Google Calendar not configured. Please complete OAuth setup (see SETUP.md)';
+      statusCode = 500;
+    } else if (error.message?.includes('Invalid grant') || error.message?.includes('Token expired') || error.code === 401) {
+      errorMessage = 'OAuth token expired or invalid. Please re-authorize (visit /api/oauth/auth)';
+      statusCode = 401;
+    } else if (error.message?.includes('Calendar not found') || error.code === 404) {
+      errorMessage = `Calendar not found: ${calendarId}. Please check GOOGLE_CALENDAR_ID in .env`;
+      statusCode = 404;
+    } else if (error.code === 400) {
+      const googleError = error.response?.data?.error;
+      errorMessage = googleError?.message || 'Bad request to Google Calendar API';
+      if (googleError?.errors) {
+        errorMessage += `. Details: ${JSON.stringify(googleError.errors)}`;
+      }
+      statusCode = 400;
+    } else {
+      errorMessage = error.message || errorMessage;
+    }
+    
+    res.status(statusCode).json({
       available: false,
-      message: error.message || 'Failed to check availability'
+      message: errorMessage,
+      error: process.env.NODE_ENV === 'development' ? {
+        message: error.message,
+        code: error.code,
+        details: error.response?.data
+      } : undefined
     });
   }
 });
