@@ -180,6 +180,7 @@ router.post('/create-event', async (req, res) => {
 
     const response = await calendar.events.insert({
       calendarId,
+      sendUpdates: 'all', // Send email notifications to all attendees
       requestBody: {
         ...event,
         // Ensure timezone is set

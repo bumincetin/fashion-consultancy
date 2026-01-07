@@ -132,6 +132,11 @@ export async function createCalendarEvent(
           },
           attendees: [
             {
+              email: 'vestilizamilano@gmail.com',
+              displayName: 'Gülizar Ermiş',
+              organizer: true,
+            },
+            {
               email: event.attendeeEmail,
               displayName: event.attendeeName,
             },
@@ -143,6 +148,7 @@ export async function createCalendarEvent(
               { method: 'popup', minutes: 60 },       // 1 hour before
             ],
           },
+          sendUpdates: 'all', // Send email notifications to attendees
         },
       }),
     });

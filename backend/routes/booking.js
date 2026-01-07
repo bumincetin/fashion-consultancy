@@ -79,6 +79,11 @@ router.get('/respond', async (req, res) => {
           },
           attendees: [
             {
+              email: 'vestilizamilano@gmail.com',
+              displayName: 'Gülizar Ermiş',
+              organizer: true
+            },
+            {
               email: booking.customerEmail,
               displayName: booking.customerName
             }
@@ -89,7 +94,9 @@ router.get('/respond', async (req, res) => {
               { method: 'email', minutes: 24 * 60 }, // 1 day before
               { method: 'popup', minutes: 60 }       // 1 hour before
             ]
-          }
+          },
+          // Send email notifications to attendees
+          sendUpdates: 'all'
         };
 
         // If event already exists, update it; otherwise create new

@@ -134,7 +134,7 @@ function generateCustomerConfirmationEmailHTML(customerName, bookingData) {
 
       <p>Gülizar will review your request and respond within 24 hours. You will receive another email notification once she has confirmed, declined, or requested any changes to your booking.</p>
       
-      <p>If you have any questions in the meantime, please don't hesitate to contact us at <a href="mailto:gulizarermis20@gmail.com">gulizarermis20@gmail.com</a>.</p>
+      <p>If you have any questions in the meantime, please don't hesitate to contact us at <a href="mailto:vestilizamilano@gmail.com">vestilizamilano@gmail.com</a>.</p>
 
       <p>We look forward to providing you with an exceptional fashion experience!</p>
       
@@ -211,10 +211,10 @@ function generateBookingResponseEmailHTML(customerName, response, bookingData) {
         ? '<p>A calendar invitation has been sent to your email address. Please add it to your calendar to ensure you don\'t miss your appointment.</p>'
         : isRejected
         ? '<p>We encourage you to submit a new booking request with alternative dates or times. We\'d love to work with you!</p>'
-        : '<p>Please reply to this email or contact us at <a href="mailto:gulizarermis20@gmail.com">gulizarermis20@gmail.com</a> to discuss the proposed changes and find a suitable alternative.</p>'
+        : '<p>Please reply to this email or contact us at <a href="mailto:vestilizamilano@gmail.com">vestilizamilano@gmail.com</a> to discuss the proposed changes and find a suitable alternative.</p>'
       }
       
-      <p>If you have any questions, please contact us at <a href="mailto:gulizarermis20@gmail.com">gulizarermis20@gmail.com</a>.</p>
+      <p>If you have any questions, please contact us at <a href="mailto:vestilizamilano@gmail.com">vestilizamilano@gmail.com</a>.</p>
 
       <p>Best regards,<br>Gülizar Ermiş<br>Fashion Consultancy</p>
     </div>
@@ -256,7 +256,7 @@ router.post('/send-booking-request', async (req, res) => {
 
     const msg = {
       to,
-      from: process.env.FROM_EMAIL || 'gulizarermis20@gmail.com',
+      from: process.env.FROM_EMAIL || 'vestilizamilano@gmail.com',
       subject,
       html: generateBookingRequestEmailHTML(bookingData, acceptUrl, rejectUrl, changeUrl),
       text: `New Booking Request\n\nCustomer: ${bookingData.customerName}\nEmail: ${bookingData.customerEmail}\nService: ${bookingData.serviceName}\nDate: ${bookingData.date}\nTime: ${bookingData.time}\nDuration: ${bookingData.duration}\n\nAccept: ${acceptUrl}\nReject: ${rejectUrl}\nRequest Changes: ${changeUrl}`
@@ -301,7 +301,7 @@ router.post('/send-customer-confirmation', async (req, res) => {
 
     const msg = {
       to,
-      from: process.env.FROM_EMAIL || 'gulizarermis20@gmail.com',
+      from: process.env.FROM_EMAIL || 'vestilizamilano@gmail.com',
       subject,
       html: generateCustomerConfirmationEmailHTML(customerName, bookingData),
       text: `Booking Request Received\n\nDear ${customerName},\n\nThank you for your booking request! We have successfully received your request and Gülizar has been notified.\n\nService: ${bookingData.serviceName}\nDate: ${bookingData.date}\nTime: ${bookingData.time}\nDuration: ${bookingData.duration}\nBooking ID: ${bookingData.bookingId}\n\nGülizar will review your request and respond within 24 hours.`
@@ -346,7 +346,7 @@ router.post('/send-booking-response', async (req, res) => {
 
     const msg = {
       to,
-      from: process.env.FROM_EMAIL || 'gulizarermis20@gmail.com',
+      from: process.env.FROM_EMAIL || 'vestilizamilano@gmail.com',
       subject,
       html: generateBookingResponseEmailHTML(customerName, response, bookingData),
       text: `Booking ${response.action === 'accept' ? 'Confirmed' : response.action === 'reject' ? 'Declined' : 'Update Request'}\n\nDear ${customerName},\n\n${response.action === 'accept' ? 'Great news! Gülizar has confirmed your booking request.' : response.action === 'reject' ? 'Thank you for your booking request. Unfortunately, Gülizar is unable to accommodate your requested time slot.' : 'Gülizar has reviewed your booking request and would like to suggest some changes.'}\n\n${response.message ? `Message from Gülizar: ${response.message}\n\n` : ''}`

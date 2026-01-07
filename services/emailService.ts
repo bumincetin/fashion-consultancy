@@ -38,7 +38,7 @@ export async function sendBookingRequestToGulizar(
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        to: 'gulizarermis20@gmail.com',
+        to: 'vestilizamilano@gmail.com',
         subject: `New Booking Request: ${bookingData.serviceName} - ${bookingData.customerName}`,
         bookingData,
       }),
