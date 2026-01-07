@@ -108,9 +108,9 @@ Invoke-RestMethod -Uri http://localhost:3001/api/calendar/check-availability `
 1. Go to **Settings** → **Sender Authentication**
 2. Click **Verify a Single Sender**
 3. Fill in:
-   - **From Email:** gulizarermis20@gmail.com
+   - **From Email:** vestilizamilano@gmail.com
    - **From Name:** Gülizar Ermiş
-   - **Reply To:** gulizarermis20@gmail.com
+   - **Reply To:** vestilizamilano@gmail.com
    - Complete all required fields
 4. Check your email and click the verification link
 
@@ -128,7 +128,7 @@ Invoke-RestMethod -Uri http://localhost:3001/api/calendar/check-availability `
 Add to `backend/.env`:
 ```env
 SENDGRID_API_KEY=SG.your_api_key_here
-FROM_EMAIL=gulizarermis20@gmail.com
+FROM_EMAIL=vestilizamilano@gmail.com
 ```
 
 ---
@@ -150,7 +150,7 @@ GOOGLE_CALENDAR_ID=gulizarermis20@gmail.com
 
 # SendGrid Email
 SENDGRID_API_KEY=SG.your_sendgrid_api_key_here
-FROM_EMAIL=gulizarermis20@gmail.com
+FROM_EMAIL=vestilizamilano@gmail.com
 ```
 
 **Important:** Replace the placeholder values with your actual credentials.
