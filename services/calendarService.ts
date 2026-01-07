@@ -1,6 +1,6 @@
 /**
  * Google Calendar Service
- * Handles availability checking and event creation for vestilizamilano@gmail.com
+ * Handles availability checking and event creation for gulizarermis20@gmail.com
  * 
  * NOTE: This service requires a backend API endpoint to securely handle Google Calendar API calls.
  * The backend should use service account credentials or OAuth2 to access the calendar.
@@ -73,14 +73,14 @@ export async function checkAvailability(
     const endTime = addMinutes(startTime, duration);
 
     // Call backend API endpoint
-    // Replace with your actual backend endpoint
-    const response = await fetch('/api/calendar/check-availability', {
+    // Use environment variable for production, fallback to deployed backend URL
+    const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://fashion-consultancy-backend-1078526273206.europe-west1.run.app';
+    const response = await fetch(`${API_BASE_URL}/api/calendar/check-availability`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        calendarId: 'vestilizamilano@gmail.com',
         timeMin: startTime,
         timeMax: endTime,
       }),
@@ -112,14 +112,13 @@ export async function createCalendarEvent(
 ): Promise<{ success: boolean; eventId?: string; message?: string }> {
   try {
     // Call backend API endpoint
-    // Replace with your actual backend endpoint
-    const response = await fetch('/api/calendar/create-event', {
+    const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://fashion-consultancy-backend-1078526273206.europe-west1.run.app';
+    const response = await fetch(`${API_BASE_URL}/api/calendar/create-event`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        calendarId: 'vestilizamilano@gmail.com',
         event: {
           summary: event.summary,
           description: event.description,
@@ -176,13 +175,13 @@ export async function getAvailableTimeSlots(
     const dayStart = `${date}T09:00:00`; // 9 AM
     const dayEnd = `${date}T18:00:00`;   // 6 PM
 
-    const response = await fetch('/api/calendar/available-slots', {
+    const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://fashion-consultancy-backend-1078526273206.europe-west1.run.app';
+    const response = await fetch(`${API_BASE_URL}/api/calendar/available-slots`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        calendarId: 'vestilizamilano@gmail.com',
         date,
         duration,
         timeMin: dayStart,

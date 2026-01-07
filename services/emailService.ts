@@ -31,13 +31,14 @@ export async function sendBookingRequestToGulizar(
   bookingData: BookingRequestEmail
 ): Promise<{ success: boolean; message?: string }> {
   try {
-    const response = await fetch('/api/email/send-booking-request', {
+    const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://fashion-consultancy-backend-1078526273206.europe-west1.run.app';
+    const response = await fetch(`${API_BASE_URL}/api/email/send-booking-request`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        to: 'vestilizamilano@gmail.com',
+        to: 'gulizarermis20@gmail.com',
         subject: `New Booking Request: ${bookingData.serviceName} - ${bookingData.customerName}`,
         bookingData,
       }),
@@ -68,7 +69,8 @@ export async function sendCustomerConfirmation(
   bookingData: BookingRequestEmail
 ): Promise<{ success: boolean; message?: string }> {
   try {
-    const response = await fetch('/api/email/send-customer-confirmation', {
+    const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://fashion-consultancy-backend-1078526273206.europe-west1.run.app';
+    const response = await fetch(`${API_BASE_URL}/api/email/send-customer-confirmation`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -106,7 +108,8 @@ export async function sendBookingResponseToCustomer(
   response: BookingResponse
 ): Promise<{ success: boolean; message?: string }> {
   try {
-    const responseData = await fetch('/api/email/send-booking-response', {
+    const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://fashion-consultancy-backend-1078526273206.europe-west1.run.app';
+    const responseData = await fetch(`${API_BASE_URL}/api/email/send-booking-response`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

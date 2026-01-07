@@ -13,8 +13,21 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middleware
+// Support multiple frontend URLs (main domain and www subdomain)
+const allowedOrigins = process.env.FRONTEND_URL 
+  ? [process.env.FRONTEND_URL, process.env.FRONTEND_URL.replace('vestiliza.com', 'www.vestiliza.com')]
+  : ['http://localhost:5173'];
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 app.use(bodyParser.json());
