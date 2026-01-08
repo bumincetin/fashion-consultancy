@@ -436,13 +436,13 @@ export const ExperiencesPage: React.FC<ExperiencesPageProps> = ({ lang, onBookEx
                 />
               </div>
               {/* Price Badge */}
-              <div className="absolute top-6 right-6 bg-[#1a1a1a] text-[#FAF8F5] px-5 py-3 rounded-full">
-                <span className="text-sm font-serif italic">{exp.price}</span>
+              <div className="absolute top-4 sm:top-6 right-4 sm:right-6 bg-[#1a1a1a] text-[#FAF8F5] px-4 sm:px-5 py-2 sm:py-3 rounded-full max-w-[calc(100%-2rem)]">
+                <span className="text-xs sm:text-sm font-serif italic truncate block">{exp.price}</span>
               </div>
               {/* Duration Badge */}
-              <div className="absolute bottom-6 left-6 glass-warm px-4 py-2 rounded-full flex items-center gap-2">
-                <Clock size={14} className="text-[#C4A484]" />
-                <span className="text-xs font-mono uppercase tracking-wider">{exp.duration}</span>
+              <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 glass-warm px-3 sm:px-4 py-2 rounded-full flex items-center gap-2 max-w-[calc(100%-2rem)]">
+                <Clock size={14} className="text-[#C4A484] flex-shrink-0" />
+                <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider truncate">{exp.duration}</span>
               </div>
             </div>
 

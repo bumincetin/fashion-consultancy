@@ -384,13 +384,13 @@ const App: React.FC = () => {
                           initial={{ opacity: 0, x: 20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: 1 }}
-                          className="absolute -bottom-6 -left-6 glass-warm p-6 rounded-2xl max-w-[220px] z-20"
+                          className="absolute -bottom-4 sm:-bottom-6 -left-2 sm:-left-6 glass-warm p-4 sm:p-6 rounded-2xl max-w-[180px] sm:max-w-[220px] z-20"
                         >
                           <div className="flex items-center gap-2 mb-2">
-                            <Star size={14} className="text-[#C5A059] fill-[#C5A059]" />
-                            <span className="text-[11px] font-mono text-[#5C554D]">{t.hero.trustedBy}</span>
+                            <Star size={14} className="text-[#C5A059] fill-[#C5A059] flex-shrink-0" />
+                            <span className="text-[10px] sm:text-[11px] font-mono text-[#5C554D] truncate">{t.hero.trustedBy}</span>
                           </div>
-                          <p className="text-lg font-serif italic text-[#1a1a1a] leading-tight">{t.hero.satisfiedClients}</p>
+                          <p className="text-base sm:text-lg font-serif italic text-[#1a1a1a] leading-tight">{t.hero.satisfiedClients}</p>
                         </motion.div>
                       </div>
                     </motion.div>
@@ -541,16 +541,16 @@ const App: React.FC = () => {
                             />
                           </div>
                           {/* Vibe Badge */}
-                          <div className="absolute top-4 left-4 glass-warm px-4 py-2 rounded-full">
-                            <span className="text-[10px] font-mono uppercase tracking-wider text-[#1a1a1a]">
+                          <div className="absolute top-4 left-4 glass-warm px-3 sm:px-4 py-2 rounded-full max-w-[calc(100%-2rem)]">
+                            <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-[#1a1a1a] truncate block">
                               {district.vibe}
                             </span>
                           </div>
                           {/* Stores Count */}
-                          <div className="absolute bottom-4 right-4 bg-[#1a1a1a] px-4 py-2 rounded-full">
-                            <span className="text-[10px] font-mono uppercase tracking-wider text-[#FAF8F5] flex items-center gap-2">
-                              <MapPin size={12} />
-                              {district.stores}
+                          <div className="absolute bottom-4 right-4 bg-[#1a1a1a] px-3 sm:px-4 py-2 rounded-full max-w-[calc(100%-2rem)]">
+                            <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-[#FAF8F5] flex items-center gap-2 truncate">
+                              <MapPin size={12} className="flex-shrink-0" />
+                              <span className="truncate">{district.stores}</span>
                             </span>
                           </div>
                         </div>
@@ -932,22 +932,18 @@ const App: React.FC = () => {
       </main>
 
       {/* Bottom Glass Navbar */}
-      <nav className="fixed bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-[100] w-[calc(100%-2rem)] sm:w-auto max-w-[95vw]">
-        <div className="glass px-2 sm:px-3 py-2 sm:py-2.5 rounded-full flex items-center justify-center gap-0.5 sm:gap-1 shadow-lg">
+      <nav className="fixed bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-[100]">
+        <div className="glass px-4 sm:px-5 py-2.5 sm:py-3 rounded-full flex items-center justify-center gap-1.5 sm:gap-2 shadow-lg">
           <img 
             src="/logogulizar.png" 
             alt="Gülizar Ermiş Logo" 
-            className="h-6 sm:h-8 w-auto object-contain mr-1 sm:mr-2"
-            style={{
-              filter: 'contrast(1.1) brightness(0.95)',
-              mixBlendMode: 'multiply'
-            }}
+            className="hidden xl:block h-10 w-10 rounded-full object-contain flex-shrink-0 mr-2 sm:mr-3"
           />
           <NavButton tab="home" label={t.nav.aperitivo} />
           <NavButton tab="experiences" label={t.nav.experiences || 'Experiences'} />
           <NavButton tab="stores" label={t.nav.stores} />
           <NavButton tab="methodology" label={t.nav.methodology} />
-          <div className="w-px h-4 sm:h-5 bg-[#1a1a1a]/10 mx-1 sm:mx-2" />
+          <div className="w-px h-5 sm:h-6 bg-[#1a1a1a]/10 mx-1 sm:mx-2" />
           <button 
             onClick={() => setIsBookingModalOpen(true)}
             className="bg-[#1a1a1a] text-[#FAF8F5] px-3 sm:px-5 py-2 sm:py-2.5 text-[8px] sm:text-[10px] font-mono tracking-[0.1em] sm:tracking-[0.15em] uppercase rounded-full hover:bg-[#C4A484] transition-all whitespace-nowrap"
@@ -956,28 +952,18 @@ const App: React.FC = () => {
             <span className="sm:hidden">Book</span>
           </button>
           
-          <div className="hidden md:flex gap-2 px-3 border-l border-[#1a1a1a]/10 ml-2 items-center">
+          <div className="hidden md:flex gap-1.5 px-3 border-l border-[#1a1a1a]/10 ml-2 items-center">
             {(['en', 'tr', 'it'] as Language[]).map(l => (
               <button 
                 key={l}
                 onClick={() => changeLanguage(l)}
-                className={`text-[9px] font-mono uppercase flex items-center gap-1 px-2 py-1 rounded-full transition-all ${
+                className={`text-[10px] font-mono uppercase px-3 py-1.5 rounded-full transition-all min-w-[36px] text-center ${
                   lang === l 
                     ? 'bg-[#1a1a1a] text-[#FAF8F5]' 
-                    : 'text-[#8C847A] hover:text-[#1a1a1a] hover:bg-[#1a1a1a]/5'
+                    : 'text-[#5C554D] hover:text-[#1a1a1a] hover:bg-[#1a1a1a]/5'
                 }`}
               >
-                {lang === l && (
-                  <img 
-                    src="/logogulizar.png" 
-                    alt="Logo" 
-                    className="h-3 w-3 object-contain"
-                    style={{
-                      filter: 'brightness(0) invert(1)'
-                    }}
-                  />
-                )}
-                {l}
+                {l.toUpperCase()}
               </button>
             ))}
           </div>

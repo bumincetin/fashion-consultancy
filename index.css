@@ -36,10 +36,10 @@
   --shadow-medium: 0 8px 40px rgba(26, 26, 26, 0.06);
   --shadow-elevated: 0 20px 60px rgba(26, 26, 26, 0.08);
   
-  /* Typography - Serif for headings, Sans-Serif for body */
-  --font-heading: 'Playfair Display', 'Cormorant Garamond', 'Georgia', serif;
+  /* Typography - Cormorant Garamond for classic luxury headings, Montserrat for body */
+  --font-heading: 'Cormorant Garamond', 'Georgia', serif;
   --font-serif: 'Cormorant Garamond', 'Georgia', serif;
-  --font-sans: 'Lato', 'Montserrat', 'Helvetica Neue', sans-serif;
+  --font-sans: 'Montserrat', 'Helvetica Neue', sans-serif;
   --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
   
   /* Animation */
@@ -155,11 +155,12 @@ body {
    GLASS & CARD SYSTEM
    ───────────────────────────────────────────────────────────────────────────── */
 .glass {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-soft);
+  background: #f3f4f6;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: visible;
 }
 
 .glass-warm {
