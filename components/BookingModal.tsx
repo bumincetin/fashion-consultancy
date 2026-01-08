@@ -44,6 +44,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, lan
   const [errors, setErrors] = useState<FormErrors>({});
   const [checkingAvailability, setCheckingAvailability] = useState(false);
   const [availabilityError, setAvailabilityError] = useState<string | null>(null);
+  // Honeypot field for spam prevention - bots will fill this, humans won't see it
+  const [honeypot, setHoneypot] = useState('');
 
   const t = TRANSLATIONS[lang].booking;
 
@@ -61,6 +63,13 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, lan
       price: 'from €400', 
       duration: '6 hours',
       desc: t.services.wardrobe.desc
+    },
+    { 
+      id: 'cityTour', 
+      name: t.services.cityTour?.name || 'Milan City Tour', 
+      price: 'from €350', 
+      duration: '8 hours',
+      desc: t.services.cityTour?.desc || 'Full-day cultural tour including Duomo, Castello Sforzesco, Brera, Navigli, and more. All entrances included.'
     },
     { 
       id: 'vip', 
@@ -128,6 +137,14 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, lan
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Honeypot spam check - if filled, silently reject (bot detected)
+    if (honeypot) {
+      console.log('Spam detected via honeypot');
+      setStep('success'); // Show success to not alert the bot
+      return;
+    }
+    
     if (!validate()) return;
     
     // Check availability one more time before submitting
@@ -205,6 +222,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, lan
       setTime('');
       setEmail('');
       setName('');
+      setHoneypot('');
       setErrors({});
       setAvailabilityError(null);
       setCheckingAvailability(false);
@@ -251,6 +269,20 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, lan
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-8">
+                  {/* Honeypot field - hidden from users, bots will fill it */}
+                  <div className="absolute -left-[9999px] aria-hidden" aria-hidden="true">
+                    <label htmlFor="website">Website (leave empty)</label>
+                    <input
+                      type="text"
+                      id="website"
+                      name="website"
+                      value={honeypot}
+                      onChange={(e) => setHoneypot(e.target.value)}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </div>
+                  
                   {/* Services */}
                   <div>
                     <label className="label-small block mb-4 text-[#8C847A]">{t.selectService}</label>

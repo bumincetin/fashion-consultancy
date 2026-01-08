@@ -29,6 +29,7 @@ export interface CalendarEvent {
 export interface ServiceDuration {
   shopping: number;   // 4 hours = 240 minutes
   wardrobe: number;   // 6 hours = 360 minutes
+  cityTour: number;   // 8 hours = 480 minutes
   vip: number;        // 3-7 days, default to 1 day = 1440 minutes
   virtual: number;    // 60 minutes
 }
@@ -36,9 +37,10 @@ export interface ServiceDuration {
 // Service durations in minutes
 export const SERVICE_DURATIONS: ServiceDuration = {
   shopping: 240,    // 4 hours
-  wardrobe: 360,   // 6 hours
-  vip: 1440,       // 1 day (default, can be customized)
-  virtual: 60      // 60 minutes
+  wardrobe: 360,    // 6 hours
+  cityTour: 480,    // 8 hours (full day)
+  vip: 1440,        // 1 day (default, can be customized)
+  virtual: 60       // 60 minutes
 };
 
 /**

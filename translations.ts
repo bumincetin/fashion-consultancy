@@ -5,6 +5,7 @@ export const TRANSLATIONS: Record<Language, any> = {
   en: {
     nav: { 
       aperitivo: 'Aperitivo', 
+      experiences: 'Experiences',
       stores: 'Store Guide', 
       methodology: 'Methodology', 
       book: 'Book Experience' 
@@ -40,30 +41,30 @@ export const TRANSLATIONS: Record<Language, any> = {
       bookTour: 'Book a Tour',
       galleria: {
         name: 'Galleria Vittorio Emanuele II',
-        description: "Italy's oldest shopping gallery, home to Prada's original boutique and timeless luxury.",
+        description: "We don't just take you to the Galleria—we take you to the private rooms above the Galleria where the real fashion magic happens. Exclusive access to spaces tourists never see.",
         stores: '45+ Boutiques',
         brands: 'Prada, Louis Vuitton, Gucci, Versace, Armani, Tod\'s, Massimo Dutti, Swarovski',
         history: 'Built between 1865-1877 by architect Giuseppe Mengoni, this stunning iron and glass arcade was one of the first shopping malls in the world. Named after the first king of unified Italy, it connects Piazza del Duomo to La Scala opera house.',
         philosophy: 'Where heritage meets haute couture. The Galleria represents the timeless Italian philosophy of "bella figura" – looking impeccable is not vanity, but a form of respect.',
-        vibe: 'Elegant & Historic'
+        vibe: 'Insider Access'
       },
       brera: {
         name: 'Brera District',
-        description: 'The artistic heart of Milan. Independent designers, vintage finds, and bohemian elegance.',
+        description: 'Skip the tourist shops. I\'ll take you to the secret courtyard ateliers where Milan\'s emerging designers create pieces you\'ll never find online. True insider knowledge.',
         stores: '80+ Ateliers',
         brands: 'Cavalli e Nastri, Biffi Boutique, Wait and See, Antonia, 10 Corso Como, Vintage Delirium, independent artisan workshops',
         history: 'Once home to artists and intellectuals since the 18th century, Brera grew around the famous Pinacoteca di Brera art gallery. The neighborhood retains its artistic soul with narrow cobblestone streets lined with art studios and independent boutiques.',
         philosophy: 'Fashion as art, style as self-expression. Brera celebrates individuality over trends, craftsmanship over mass production. Here, every piece tells a story.',
-        vibe: 'Bohemian & Artistic'
+        vibe: 'Hidden Gems'
       },
       montenapoleone: {
         name: 'Via Montenapoleone',
-        description: "The pinnacle of luxury fashion. Where the world's most prestigious brands call home.",
+        description: "Anyone can walk Monte Napoleone. But can you get a private appointment in the VIP salon? I\'ll arrange exclusive access that transforms shopping into an experience.",
         stores: '120+ Brands',
         brands: 'Bulgari, Cartier, Dolce & Gabbana, Fendi, Hermès, Valentino, Bottega Veneta, Balenciaga, Saint Laurent, Celine, Dior, Chanel',
         history: 'Named after Napoleon Bonaparte who ordered its construction in 1804, Via Montenapoleone transformed from a street of banks to the world\'s most exclusive fashion destination in the 1950s when Italian fashion houses began opening their flagship stores.',
         philosophy: 'The Quadrilatero della Moda embodies Italian excellence – where master craftsmanship meets cutting-edge design. Every detail is perfection, every piece an investment.',
-        vibe: 'Ultra-Luxury & Exclusive'
+        vibe: 'VIP Access'
       },
       serravalle: {
         name: 'Serravalle Designer Outlet',
@@ -123,25 +124,21 @@ export const TRANSLATIONS: Record<Language, any> = {
       desc: "A carefully curated collection of Milan's finest luxury establishments, from iconic fashion houses to exclusive designer ateliers."
     },
     methodology: {
-      label: 'How I Work',
-      title: 'My Methodology',
-      intro: 'Every style journey is unique. My approach combines deep listening, luxury fashion expertise, and intimate knowledge of Milan to create exclusive experiences tailored just for you.',
+      label: 'The 3-Step Style DNA Method',
+      title: 'My Proprietary Approach',
+      intro: 'I\'ve developed a unique methodology that goes beyond simple shopping. The 3-Step Style DNA Method™ is designed to transform not just your wardrobe, but your entire relationship with fashion.',
       steps: [
         {
-          title: 'Discovery Conversation',
-          description: 'We begin with an in-depth consultation to understand your lifestyle, preferences, body type, and style aspirations. This is where I learn what makes you unique.'
+          title: 'Discovery — The Psychology',
+          description: 'We dive deep into who you are. Your lifestyle, aspirations, body language, and the image you want to project. This isn\'t just about clothes—it\'s about understanding your Style DNA.'
         },
         {
-          title: 'Personalized Research',
-          description: 'Based on our conversation, I curate a selection of luxury boutiques, designer showrooms, and exclusive pieces that align with your vision and budget.'
+          title: 'Curation — The Architecture',
+          description: 'Using insights from Discovery, I architect your perfect wardrobe blueprint. Each piece is strategically selected to build upon the others, creating a foundation of investment pieces that work in harmony.'
         },
         {
-          title: 'Style Curation',
-          description: 'Together, we explore Milan\'s most prestigious fashion destinations. I guide you through carefully selected stores, helping you discover pieces that enhance your personal style.'
-        },
-        {
-          title: 'Wardrobe Integration',
-          description: 'Each new piece is chosen to complement your existing wardrobe, creating a cohesive luxury collection that reflects timeless Italian elegance.'
+          title: 'Integration — The Wardrobe',
+          description: 'The final transformation. We bring your Style DNA to life through carefully orchestrated shopping experiences, ensuring every new piece integrates seamlessly into your existing wardrobe and lifestyle.'
         }
       ],
       philosophyLabel: 'My Philosophy',
@@ -226,6 +223,10 @@ export const TRANSLATIONS: Record<Language, any> = {
           name: 'Wardrobe Transformation',
           desc: 'Complete closet audit and luxury styling session to elevate your personal style.'
         },
+        cityTour: {
+          name: 'Milan Cultural & Fashion Journey',
+          desc: 'Full-day tour of Duomo, Castello Sforzesco, Brera, Navigli, La Scala & more. All entrances included.'
+        },
         vip: {
           name: 'Milan Fashion Week Experience',
           desc: 'Exclusive access to shows, showrooms, and designer meetings during MFW.'
@@ -240,13 +241,14 @@ export const TRANSLATIONS: Record<Language, any> = {
   tr: {
     nav: { 
       aperitivo: 'Aperitivo', 
+      experiences: 'Deneyimler',
       stores: 'Mağaza Rehberi', 
       methodology: 'Metodoloji', 
       book: 'Randevu Al' 
     },
     hero: { 
       subtitle: 'Moda Tasarımcısı & Lüks Stil Danışmanı',
-      title1: 'Milano\'nun',
+      title1: 'Milano',
       title2: 'Zarafetini',
       title3: 'Keşfet',
       desc: "Milano'nun efsanevi moda sahnesini özel lüks turlarla deneyimleyin. İkonik Via Montenapoleone'den gizli haute couture atölyelerine, İtalyan zarafetinin sanatını kişisel bir rehberle keşfedin.",
@@ -358,25 +360,21 @@ export const TRANSLATIONS: Record<Language, any> = {
       desc: "Milano'nun en iyi lüks kuruluşlarından özenle seçilmiş bir koleksiyon, ikonik moda evlerinden özel tasarımcı atölyelerine."
     },
     methodology: {
-      label: 'Nasıl Çalışırım',
-      title: 'Metodolojim',
-      intro: 'Her stil yolculuğu benzersizdir. Yaklaşımım, size özel özel deneyimler yaratmak için derin dinleme, lüks moda uzmanlığı ve Milano\'ya dair içsel bilgiyi bir araya getirir.',
+      label: '3 Adımlı Stil DNA Metodu',
+      title: 'Özel Yaklaşımım',
+      intro: 'Basit alışverişin ötesine geçen benzersiz bir metodoloji geliştirdim. 3 Adımlı Stil DNA Metodu™, sadece gardırobunuzu değil, modayla olan tüm ilişkinizi dönüştürmek için tasarlandı.',
       steps: [
         {
-          title: 'Keşif Görüşmesi',
-          description: 'Yaşam tarzınızı, tercihlerinizi, vücut tipinizi ve stil hedeflerinizi anlamak için derinlemesine bir danışmanlıkla başlarız. Sizi benzersiz kılan şeyleri burada öğrenirim.'
+          title: 'Keşif — Psikoloji',
+          description: 'Kim olduğunuzu derinlemesine inceliyoruz. Yaşam tarzınız, hedefleriniz, beden diliniz ve yansıtmak istediğiniz imaj. Bu sadece kıyafetlerle ilgili değil—Stil DNA\'nızı anlamakla ilgili.'
         },
         {
-          title: 'Kişiselleştirilmiş Araştırma',
-          description: 'Görüşmemize dayanarak, vizyonunuz ve bütçenizle uyumlu lüks butikler, tasarımcı showroom\'ları ve özel parçalar seçerim.'
+          title: 'Küratörlük — Mimari',
+          description: 'Keşif aşamasından elde edilen içgörüleri kullanarak mükemmel gardırop planınızı oluşturuyorum. Her parça, birbirleri üzerine inşa edilecek şekilde stratejik olarak seçilir ve uyum içinde çalışan yatırım parçalarının temeli oluşturulur.'
         },
         {
-          title: 'Stil Küratörlüğü',
-          description: 'Birlikte Milano\'nun en prestijli moda destinasyonlarını keşfederiz. Özenle seçilmiş mağazalarda size rehberlik ederek kişisel stilinizi geliştiren parçaları keşfetmenize yardımcı olurum.'
-        },
-        {
-          title: 'Gardırop Entegrasyonu',
-          description: 'Her yeni parça, mevcut gardırobunuzu tamamlamak üzere seçilir ve zamansız İtalyan zarafetini yansıtan tutarlı bir lüks koleksiyon oluşturur.'
+          title: 'Entegrasyon — Gardırop',
+          description: 'Son dönüşüm. Özenle düzenlenmiş alışveriş deneyimleri aracılığıyla Stil DNA\'nızı hayata geçiriyoruz, her yeni parçanın mevcut gardırobunuza ve yaşam tarzınıza sorunsuz bir şekilde entegre olmasını sağlıyoruz.'
         }
       ],
       philosophyLabel: 'Felsefem',
@@ -461,6 +459,10 @@ export const TRANSLATIONS: Record<Language, any> = {
           name: 'Gardırop Dönüşümü',
           desc: 'Kişisel tarzınızı yükseltmek için tam dolap denetimi ve lüks stil danışmanlığı.'
         },
+        cityTour: {
+          name: 'Milano Kültür & Moda Yolculuğu',
+          desc: "Duomo, Castello Sforzesco, Brera, Navigli, La Scala ve daha fazlasını içeren tam gün tur. Tüm girişler dahil."
+        },
         vip: {
           name: 'Milano Moda Haftası Deneyimi',
           desc: "MFW süresince gösterilere, showroom'lara ve tasarımcı buluşmalarına özel erişim."
@@ -475,6 +477,7 @@ export const TRANSLATIONS: Record<Language, any> = {
   it: {
     nav: { 
       aperitivo: 'Aperitivo', 
+      experiences: 'Esperienze',
       stores: 'Guida Negozi', 
       methodology: 'Metodologia', 
       book: 'Prenota' 
@@ -593,25 +596,21 @@ export const TRANSLATIONS: Record<Language, any> = {
       desc: "Una collezione accuratamente curata dei migliori stabilimenti di lusso di Milano, dalle iconiche case di moda agli esclusivi atelier di designer."
     },
     methodology: {
-      label: 'Come Lavoro',
-      title: 'La Mia Metodologia',
-      intro: 'Ogni viaggio di stile è unico. Il mio approccio combina ascolto profondo, competenza nella moda di lusso e conoscenza intima di Milano per creare esperienze esclusive su misura per te.',
+      label: 'Il Metodo 3 Fasi Style DNA',
+      title: 'Il Mio Approccio Esclusivo',
+      intro: 'Ho sviluppato una metodologia unica che va oltre il semplice shopping. Il Metodo 3 Fasi Style DNA™ è progettato per trasformare non solo il tuo guardaroba, ma la tua intera relazione con la moda.',
       steps: [
         {
-          title: 'Conversazione di Scoperta',
-          description: 'Iniziamo con una consulenza approfondita per capire il tuo stile di vita, le tue preferenze, il tuo tipo di corpo e le tue aspirazioni di stile. È qui che imparo cosa ti rende unica.'
+          title: 'Scoperta — La Psicologia',
+          description: 'Approfondiamo chi sei. Il tuo stile di vita, le tue aspirazioni, il linguaggio del corpo e l\'immagine che vuoi proiettare. Non si tratta solo di vestiti—si tratta di comprendere il tuo Style DNA.'
         },
         {
-          title: 'Ricerca Personalizzata',
-          description: 'Sulla base della nostra conversazione, curo una selezione di boutique di lusso, showroom di designer e pezzi esclusivi che si allineano con la tua visione e il tuo budget.'
+          title: 'Curatela — L\'Architettura',
+          description: 'Usando le intuizioni dalla Scoperta, architetto il progetto perfetto del tuo guardaroba. Ogni pezzo è selezionato strategicamente per costruire sugli altri, creando una base di pezzi di investimento che lavorano in armonia.'
         },
         {
-          title: 'Curatela di Stile',
-          description: 'Insieme, esploriamo le destinazioni di moda più prestigiose di Milano. Ti guido attraverso negozi accuratamente selezionati, aiutandoti a scoprire pezzi che valorizzano il tuo stile personale.'
-        },
-        {
-          title: 'Integrazione del Guardaroba',
-          description: 'Ogni nuovo pezzo viene scelto per completare il tuo guardaroba esistente, creando una collezione di lusso coesa che riflette l\'eleganza italiana senza tempo.'
+          title: 'Integrazione — Il Guardaroba',
+          description: 'La trasformazione finale. Diamo vita al tuo Style DNA attraverso esperienze di shopping accuratamente orchestrate, assicurando che ogni nuovo pezzo si integri perfettamente nel tuo guardaroba e stile di vita esistenti.'
         }
       ],
       philosophyLabel: 'La Mia Filosofia',
@@ -695,6 +694,10 @@ export const TRANSLATIONS: Record<Language, any> = {
         wardrobe: {
           name: 'Trasformazione del Guardaroba',
           desc: "Audit completo dell'armadio e sessione di styling di lusso per elevare il tuo stile personale."
+        },
+        cityTour: {
+          name: 'Viaggio Culturale & Moda Milano',
+          desc: "Tour di una giornata intera: Duomo, Castello Sforzesco, Brera, Navigli, La Scala e altro. Tutti gli ingressi inclusi."
         },
         vip: {
           name: 'Esperienza Milan Fashion Week',

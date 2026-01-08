@@ -41,6 +41,7 @@ export const ImageSlider: React.FC<ImageSliderProps> = ({
           key={currentIndex}
           src={images[currentIndex]}
           alt={`${alt} ${currentIndex + 1}`}
+          loading="lazy"
           initial={{ opacity: 0, scale: 1.1 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
@@ -114,6 +115,7 @@ export const ImageSliderKenBurns: React.FC<ImageSliderProps> = ({
           <motion.img
             src={images[currentIndex]}
             alt={`${alt} ${currentIndex + 1}`}
+            loading="lazy"
             initial={{ scale: 1 }}
             animate={{ scale: 1.08 }}
             transition={{ 
@@ -177,6 +179,7 @@ export const ImageSliderCrossfade: React.FC<ImageSliderProps> = ({
           key={index}
           src={src}
           alt={`${alt} ${index + 1}`}
+          loading={index === 0 ? 'eager' : 'lazy'}
           initial={false}
           animate={{ 
             opacity: index === currentIndex ? 1 : 0,

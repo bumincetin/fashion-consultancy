@@ -14,11 +14,11 @@
   --bg-card: #FFFFFF;
   --bg-elevated: #FFFFFE;
   
-  /* Text Colors */
-  --text-primary: #2C2825;
-  --text-secondary: #5C554D;
-  --text-muted: #8C847A;
-  --text-light: #AEA69C;
+  /* Text Colors - Rich Black/Charcoal instead of true black for premium feel */
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4542;
+  --text-muted: #7a746c;
+  --text-light: #9e968c;
   
   /* Accent Colors - Terracotta & Champagne */
   --accent-terracotta: #C4A484;
@@ -29,16 +29,17 @@
   --accent-azure: #8FAABE;
   
   /* Borders & Shadows */
-  --border-light: rgba(44, 40, 37, 0.06);
-  --border-medium: rgba(44, 40, 37, 0.1);
-  --border-strong: rgba(44, 40, 37, 0.15);
-  --shadow-soft: 0 2px 20px rgba(44, 40, 37, 0.04);
-  --shadow-medium: 0 8px 40px rgba(44, 40, 37, 0.06);
-  --shadow-elevated: 0 20px 60px rgba(44, 40, 37, 0.08);
+  --border-light: rgba(26, 26, 26, 0.06);
+  --border-medium: rgba(26, 26, 26, 0.1);
+  --border-strong: rgba(26, 26, 26, 0.15);
+  --shadow-soft: 0 2px 20px rgba(26, 26, 26, 0.04);
+  --shadow-medium: 0 8px 40px rgba(26, 26, 26, 0.06);
+  --shadow-elevated: 0 20px 60px rgba(26, 26, 26, 0.08);
   
-  /* Typography */
+  /* Typography - Serif for headings, Sans-Serif for body */
+  --font-heading: 'Playfair Display', 'Cormorant Garamond', 'Georgia', serif;
   --font-serif: 'Cormorant Garamond', 'Georgia', serif;
-  --font-sans: 'Montserrat', 'Helvetica Neue', sans-serif;
+  --font-sans: 'Lato', 'Montserrat', 'Helvetica Neue', sans-serif;
   --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
   
   /* Animation */
@@ -85,9 +86,9 @@ body {
   font-family: var(--font-sans);
 }
 
-/* Editorial Headlines */
+/* Editorial Headlines - Serif fonts with wider tracking for luxury feel */
 .heading-hero {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-size: clamp(3.5rem, 10vw, 9rem);
   font-weight: 400;
   font-style: italic;
@@ -97,7 +98,7 @@ body {
 }
 
 .heading-display {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-size: clamp(2.5rem, 6vw, 5rem);
   font-weight: 400;
   font-style: italic;
@@ -106,19 +107,29 @@ body {
 }
 
 .heading-section {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-size: clamp(1.75rem, 4vw, 3rem);
   font-weight: 400;
   font-style: italic;
   line-height: 1.15;
 }
 
-/* Labels & Body */
+/* Uppercase headers with wide tracking for premium look */
+.heading-uppercase {
+  font-family: var(--font-sans);
+  font-size: clamp(0.75rem, 2vw, 1rem);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--text-primary);
+}
+
+/* Labels & Body - Wide tracking on uppercase labels for premium look */
 .label-micro {
   font-family: var(--font-mono);
   font-size: 9px;
   font-weight: 400;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--text-muted);
 }
@@ -127,16 +138,16 @@ body {
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 400;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--text-secondary);
 }
 
 .body-elegant {
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 300;
-  line-height: 1.8;
+  line-height: 1.85;
   color: var(--text-secondary);
 }
 
