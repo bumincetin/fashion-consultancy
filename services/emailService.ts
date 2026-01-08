@@ -178,3 +178,45 @@ export function formatTimeForEmail(time: string): string {
   return `${displayHour}:${minutes} ${ampm}`;
 }
 
+/**
+ * Send Trend Report to subscriber
+ * Sends the Milan Spring/Summer 2026 Trend Report via email
+ */
+export interface TrendReportSubscriber {
+  email: string;
+  language: 'en' | 'tr' | 'it';
+  consentDate: string;
+}
+
+export async function sendTrendReport(
+  subscriber: TrendReportSubscriber
+): Promise<{ success: boolean; message?: string }> {
+  try {
+    const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://fashion-consultancy-backend-1078526273206.europe-west1.run.app';
+    const response = await fetch(`${API_BASE_URL}/api/email/send-trend-report`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        to: subscriber.email,
+        language: subscriber.language,
+        consentDate: subscriber.consentDate,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to send trend report');
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error sending trend report:', error);
+    return {
+      success: false,
+      message: 'Failed to send trend report',
+    };
+  }
+}
+
