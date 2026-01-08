@@ -15,7 +15,7 @@
   --bg-elevated: #FFFFFE;
   
   /* Text Colors - Rich Black/Charcoal instead of true black for premium feel */
-  --text-primary: #1a1a1a;
+  --text-primary: #2C2825;
   --text-secondary: #4a4542;
   --text-muted: #7a746c;
   --text-light: #9e968c;
@@ -29,12 +29,12 @@
   --accent-azure: #8FAABE;
   
   /* Borders & Shadows */
-  --border-light: rgba(26, 26, 26, 0.06);
-  --border-medium: rgba(26, 26, 26, 0.1);
-  --border-strong: rgba(26, 26, 26, 0.15);
-  --shadow-soft: 0 2px 20px rgba(26, 26, 26, 0.04);
-  --shadow-medium: 0 8px 40px rgba(26, 26, 26, 0.06);
-  --shadow-elevated: 0 20px 60px rgba(26, 26, 26, 0.08);
+  --border-light: rgba(44, 40, 37, 0.06);
+  --border-medium: rgba(44, 40, 37, 0.1);
+  --border-strong: rgba(44, 40, 37, 0.15);
+  --shadow-soft: 0 2px 20px rgba(44, 40, 37, 0.04);
+  --shadow-medium: 0 8px 40px rgba(44, 40, 37, 0.06);
+  --shadow-elevated: 0 20px 60px rgba(44, 40, 37, 0.08);
   
   /* Typography - Cormorant Garamond for classic luxury headings, Montserrat for body */
   --font-heading: 'Cormorant Garamond', 'Georgia', serif;

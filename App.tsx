@@ -162,7 +162,7 @@ const SectionHeader: React.FC<{
       className={`mb-16 md:mb-20 ${centered ? 'text-center' : ''}`}
     >
       <span className="label-micro block mb-4 text-[#C4A484]">{label}</span>
-      <h2 className="heading-display text-[#1a1a1a] mb-6">{title}</h2>
+      <h2 className="heading-display text-[#2C2825] mb-6">{title}</h2>
       {description && (
         <p className={`body-elegant ${centered ? 'max-w-2xl mx-auto' : 'max-w-xl'}`}>{description}</p>
       )}
@@ -248,8 +248,8 @@ const App: React.FC = () => {
       onClick={() => setActiveTab(tab)}
       className={`px-2.5 sm:px-5 py-2 sm:py-2.5 text-[8px] sm:text-[10px] font-mono tracking-[0.1em] sm:tracking-[0.15em] uppercase transition-all duration-500 rounded-full whitespace-nowrap ${
         activeTab === tab 
-          ? 'bg-[#1a1a1a] text-[#FAF8F5]' 
-          : 'text-[#5C554D] hover:text-[#1a1a1a]'
+          ? 'bg-[#2C2825] text-[#FAF8F5]' 
+          : 'text-[#5C554D] hover:text-[#2C2825]'
       }`}
     >
       {label}
@@ -269,7 +269,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-[#1a1a1a]">
+    <div className="min-h-screen bg-[#FAF8F5] text-[#2C2825]">
       {/* SEO Head - Dynamic meta tags per language */}
       <SEOHead lang={lang} />
       
@@ -306,7 +306,7 @@ const App: React.FC = () => {
                         transition={{ delay: 0.1 }}
                         className="mb-8"
                       >
-                        <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif italic text-[#1a1a1a] leading-none mb-2">
+                        <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif italic text-[#2C2825] leading-none mb-2">
                           Gülizar Ermiş
                         </h2>
                       </motion.div>
@@ -348,14 +348,14 @@ const App: React.FC = () => {
                       >
                         <button 
                           onClick={() => setActiveTab('methodology')}
-                          className="bg-[#1a1a1a] text-[#FAF8F5] px-6 sm:px-10 py-3.5 sm:py-4 text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] rounded-full hover:bg-[#C4A484] transition-all duration-500 flex items-center justify-center gap-2 sm:gap-3"
+                          className="bg-[#2C2825] text-[#FAF8F5] px-6 sm:px-10 py-3.5 sm:py-4 text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] rounded-full hover:bg-[#C4A484] transition-all duration-500 flex items-center justify-center gap-2 sm:gap-3"
                         >
                           {t.hero.cta1}
                           <ArrowRight size={14} />
                         </button>
                         <button 
                           onClick={() => setIsBookingModalOpen(true)}
-                          className="border border-[#1a1a1a]/20 px-6 sm:px-10 py-3.5 sm:py-4 text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] rounded-full hover:border-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-[#FAF8F5] transition-all duration-500"
+                          className="border border-[#2C2825]/20 px-6 sm:px-10 py-3.5 sm:py-4 text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] rounded-full hover:border-[#2C2825] hover:bg-[#2C2825] hover:text-[#FAF8F5] transition-all duration-500"
                         >
                           {t.hero.cta2}
                         </button>
@@ -390,7 +390,7 @@ const App: React.FC = () => {
                             <Star size={14} className="text-[#C5A059] fill-[#C5A059] flex-shrink-0" />
                             <span className="text-[10px] sm:text-[11px] font-mono text-[#5C554D] truncate">{t.hero.trustedBy}</span>
                           </div>
-                          <p className="text-base sm:text-lg font-serif italic text-[#1a1a1a] leading-tight">{t.hero.satisfiedClients}</p>
+                          <p className="text-base sm:text-lg font-serif italic text-[#2C2825] leading-tight">{t.hero.satisfiedClients}</p>
                         </motion.div>
                       </div>
                     </motion.div>
@@ -416,7 +416,7 @@ const App: React.FC = () => {
                       className="col-span-12 md:col-span-8 relative overflow-hidden rounded-3xl group min-h-[500px]"
                     >
                       <LuxuryImageSlider images={LUXURY_SHOPPING_IMAGES} />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a]/90 via-[#1a1a1a]/30 to-transparent z-10" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#2C2825]/90 via-[#2C2825]/30 to-transparent z-10" />
                       <div className="absolute bottom-0 left-0 right-0 p-10 md:p-12 z-20">
                         <span className="label-micro block mb-4 text-[#C4A484]">{t.services.premium}</span>
                         <h3 className="text-3xl md:text-4xl font-serif italic text-white mb-4">
@@ -445,7 +445,7 @@ const App: React.FC = () => {
                         <div className="w-12 h-12 rounded-2xl bg-[#C4A484]/10 flex items-center justify-center mb-6">
                           <Heart size={20} className="text-[#C4A484]" />
                         </div>
-                        <h4 className="label-small mb-3 text-[#1a1a1a]">{t.services.wardrobeCuration}</h4>
+                        <h4 className="label-small mb-3 text-[#2C2825]">{t.services.wardrobeCuration}</h4>
                         <p className="text-[#5C554D] text-sm leading-relaxed">
                           {t.services.wardrobeCurationDesc}
                         </p>
@@ -461,7 +461,7 @@ const App: React.FC = () => {
                         <div className="w-12 h-12 rounded-2xl bg-[#D4A5A5]/10 flex items-center justify-center mb-6">
                           <Crown size={20} className="text-[#D4A5A5]" />
                         </div>
-                        <h4 className="label-small mb-3 text-[#1a1a1a]">{t.services.styleIntelligence}</h4>
+                        <h4 className="label-small mb-3 text-[#2C2825]">{t.services.styleIntelligence}</h4>
                         <p className="text-[#5C554D] text-sm leading-relaxed">
                           {t.services.styleIntelligenceDesc}
                         </p>
@@ -542,12 +542,12 @@ const App: React.FC = () => {
                           </div>
                           {/* Vibe Badge */}
                           <div className="absolute top-4 left-4 glass-warm px-3 sm:px-4 py-2 rounded-full max-w-[calc(100%-2rem)]">
-                            <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-[#1a1a1a] truncate block">
+                            <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-[#2C2825] truncate block">
                               {district.vibe}
                             </span>
                           </div>
                           {/* Stores Count */}
-                          <div className="absolute bottom-4 right-4 bg-[#1a1a1a] px-3 sm:px-4 py-2 rounded-full max-w-[calc(100%-2rem)]">
+                          <div className="absolute bottom-4 right-4 bg-[#2C2825] px-3 sm:px-4 py-2 rounded-full max-w-[calc(100%-2rem)]">
                             <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-[#FAF8F5] flex items-center gap-2 truncate">
                               <MapPin size={12} className="flex-shrink-0" />
                               <span className="truncate">{district.stores}</span>
@@ -558,7 +558,7 @@ const App: React.FC = () => {
                         {/* Content */}
                         <div className={`space-y-6 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                           <div>
-                            <h3 className="text-2xl md:text-3xl font-serif italic text-[#1a1a1a] mb-3">
+                            <h3 className="text-2xl md:text-3xl font-serif italic text-[#2C2825] mb-3">
                               {district.name}
                             </h3>
                             <p className="text-[#5C554D] text-base leading-relaxed">
@@ -576,7 +576,7 @@ const App: React.FC = () => {
 
                           {/* Philosophy */}
                           <div className="border-l-2 border-[#C4A484] pl-5">
-                            <p className="text-[#1a1a1a] italic text-sm leading-relaxed">
+                            <p className="text-[#2C2825] italic text-sm leading-relaxed">
                               "{district.philosophy}"
                             </p>
                           </div>
@@ -592,7 +592,7 @@ const App: React.FC = () => {
                           {/* CTA Button */}
                           <button 
                             onClick={() => setIsBookingModalOpen(true)}
-                            className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.15em] text-[#1a1a1a] border border-[#1a1a1a]/20 px-6 py-3 rounded-full hover:bg-[#1a1a1a] hover:text-[#FAF8F5] transition-all duration-300"
+                            className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.15em] text-[#2C2825] border border-[#2C2825]/20 px-6 py-3 rounded-full hover:bg-[#2C2825] hover:text-[#FAF8F5] transition-all duration-300"
                           >
                             {t.districts.bookTour}
                             <ArrowRight size={14} />
@@ -605,7 +605,7 @@ const App: React.FC = () => {
               </section>
 
               {/* Testimonial Section with Sliding Animation */}
-              <section className="py-24 px-6 bg-[#1a1a1a]">
+              <section className="py-24 px-6 bg-[#2C2825]">
                 <div className="max-w-4xl mx-auto text-center">
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -658,7 +658,7 @@ const App: React.FC = () => {
                           {t.about.bio3}
                         </p>
                       </div>
-                      <div className="flex gap-8 mt-8 pt-8 border-t border-[#1a1a1a]/10">
+                      <div className="flex gap-8 mt-8 pt-8 border-t border-[#2C2825]/10">
                         <div>
                           <p className="text-3xl font-serif italic text-[#C4A484]">{t.about.stat1Value}</p>
                           <p className="text-[10px] font-mono uppercase tracking-wider text-[#8C847A]">{t.about.stat1Label}</p>
@@ -791,7 +791,7 @@ const App: React.FC = () => {
                         </motion.div>
                         
                         {/* Content */}
-                        <h3 className="text-lg font-serif italic text-[#1a1a1a] mb-3">{step.title}</h3>
+                        <h3 className="text-lg font-serif italic text-[#2C2825] mb-3">{step.title}</h3>
                         <p className="text-[#5C554D] text-sm leading-relaxed">{step.description}</p>
                         
                         {/* Hover Accent */}
@@ -803,7 +803,7 @@ const App: React.FC = () => {
               </div>
 
               {/* Philosophy Section */}
-              <div className="bg-[#1a1a1a] py-24 px-6 mb-24">
+              <div className="bg-[#2C2825] py-24 px-6 mb-24">
                 <div className="max-w-4xl mx-auto">
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -851,7 +851,7 @@ const App: React.FC = () => {
                         {index === 1 && <Gem size={28} className="text-[#C4A484]" />}
                         {index === 2 && <Heart size={28} className="text-[#C4A484]" />}
                       </motion.div>
-                      <h3 className="text-xl font-serif italic text-[#1a1a1a] mb-3">{feature.title}</h3>
+                      <h3 className="text-xl font-serif italic text-[#2C2825] mb-3">{feature.title}</h3>
                       <p className="text-[#5C554D] text-sm leading-relaxed">{feature.description}</p>
                     </motion.div>
                   ))}
@@ -886,7 +886,7 @@ const App: React.FC = () => {
                             <span className="text-[10px] font-mono uppercase tracking-wider text-[#C4A484] block mb-2">
                               {item.time}
                             </span>
-                            <h4 className="text-lg font-serif italic text-[#1a1a1a] mb-2">{item.title}</h4>
+                            <h4 className="text-lg font-serif italic text-[#2C2825] mb-2">{item.title}</h4>
                             <p className="text-[#5C554D] text-sm leading-relaxed">{item.description}</p>
                           </div>
                         </div>
@@ -911,7 +911,7 @@ const App: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                 >
-                  <h2 className="text-3xl md:text-4xl font-serif italic text-[#1a1a1a] mb-6">
+                  <h2 className="text-3xl md:text-4xl font-serif italic text-[#2C2825] mb-6">
                     {t.methodology.ctaTitle}
                   </h2>
                   <p className="text-[#5C554D] text-lg mb-10 max-w-xl mx-auto">
@@ -919,7 +919,7 @@ const App: React.FC = () => {
                   </p>
                   <button 
                     onClick={() => setIsBookingModalOpen(true)}
-                    className="bg-[#1a1a1a] text-[#FAF8F5] px-12 py-5 text-[11px] font-mono uppercase tracking-[0.2em] rounded-full hover:bg-[#C4A484] transition-all duration-500 inline-flex items-center gap-3"
+                    className="bg-[#2C2825] text-[#FAF8F5] px-12 py-5 text-[11px] font-mono uppercase tracking-[0.2em] rounded-full hover:bg-[#C4A484] transition-all duration-500 inline-flex items-center gap-3"
                   >
                     {t.methodology.ctaButton}
                     <ArrowRight size={16} />
@@ -943,24 +943,24 @@ const App: React.FC = () => {
           <NavButton tab="experiences" label={t.nav.experiences || 'Experiences'} />
           <NavButton tab="stores" label={t.nav.stores} />
           <NavButton tab="methodology" label={t.nav.methodology} />
-          <div className="w-px h-5 sm:h-6 bg-[#1a1a1a]/10 mx-1 sm:mx-2" />
+          <div className="w-px h-5 sm:h-6 bg-[#2C2825]/10 mx-1 sm:mx-2" />
           <button 
             onClick={() => setIsBookingModalOpen(true)}
-            className="bg-[#1a1a1a] text-[#FAF8F5] px-3 sm:px-5 py-2 sm:py-2.5 text-[8px] sm:text-[10px] font-mono tracking-[0.1em] sm:tracking-[0.15em] uppercase rounded-full hover:bg-[#C4A484] transition-all whitespace-nowrap"
+            className="bg-[#2C2825] text-[#FAF8F5] px-3 sm:px-5 py-2 sm:py-2.5 text-[8px] sm:text-[10px] font-mono tracking-[0.1em] sm:tracking-[0.15em] uppercase rounded-full hover:bg-[#C4A484] transition-all whitespace-nowrap"
           >
             <span className="hidden sm:inline">{t.nav.book}</span>
             <span className="sm:hidden">Book</span>
           </button>
           
-          <div className="hidden md:flex gap-1.5 px-3 border-l border-[#1a1a1a]/10 ml-2 items-center">
+          <div className="hidden md:flex gap-1.5 px-3 border-l border-[#2C2825]/10 ml-2 items-center">
             {(['en', 'tr', 'it'] as Language[]).map(l => (
               <button 
                 key={l}
                 onClick={() => changeLanguage(l)}
                 className={`text-[10px] font-mono uppercase px-3 py-1.5 rounded-full transition-all min-w-[36px] text-center ${
                   lang === l 
-                    ? 'bg-[#1a1a1a] text-[#FAF8F5]' 
-                    : 'text-[#5C554D] hover:text-[#1a1a1a] hover:bg-[#1a1a1a]/5'
+                    ? 'bg-[#2C2825] text-[#FAF8F5]' 
+                    : 'text-[#5C554D] hover:text-[#2C2825] hover:bg-[#2C2825]/5'
                 }`}
               >
                 {l.toUpperCase()}
@@ -975,7 +975,7 @@ const App: React.FC = () => {
             <button 
               key={l}
               onClick={() => changeLanguage(l)}
-              className={`text-[9px] font-mono uppercase px-2 py-1 rounded-full ${lang === l ? 'bg-[#1a1a1a] text-white' : 'bg-white/80 text-[#8C847A]'} transition-all shadow-sm`}
+              className={`text-[9px] font-mono uppercase px-2 py-1 rounded-full ${lang === l ? 'bg-[#2C2825] text-white' : 'bg-white/80 text-[#8C847A]'} transition-all shadow-sm`}
             >
               {l}
             </button>
@@ -984,7 +984,7 @@ const App: React.FC = () => {
       </nav>
 
       {/* Footer */}
-      <footer className="bg-[#1a1a1a] py-16 px-6">
+      <footer className="bg-[#2C2825] py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-12 gap-10 mb-12">
             <div className="col-span-12 md:col-span-4">
