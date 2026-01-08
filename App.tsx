@@ -994,7 +994,10 @@ const App: React.FC = () => {
                   alt="Vestiliza - Gülizar Ermiş" 
                   className="h-16 w-auto object-contain"
                 />
-                <h2 className="text-2xl font-serif italic text-[#FAF8F5]">VESTILIZA, GÜLİZAR ERMİŞ</h2>
+                <div>
+                  <h2 className="text-2xl font-serif italic text-[#FAF8F5]">VESTILIZA</h2>
+                  <h2 className="text-2xl font-serif italic text-[#FAF8F5]">GÜLİZAR ERMİŞ</h2>
+                </div>
               </div>
               <p className="text-[#FAF8F5]/50 text-sm leading-relaxed">
                 {t.footer.desc}
