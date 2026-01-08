@@ -988,7 +988,11 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-12 gap-10 mb-12">
             <div className="col-span-12 md:col-span-4">
-              <h2 className="text-2xl font-serif italic text-[#FAF8F5] mb-4">VESTILIZA, Gülizar Ermiş</h2>
+              <img 
+                src="/logodark.png" 
+                alt="Vestiliza - Gülizar Ermiş" 
+                className="h-16 w-auto object-contain mb-4"
+              />
               <p className="text-[#FAF8F5]/50 text-sm leading-relaxed">
                 {t.footer.desc}
               </p>
