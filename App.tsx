@@ -988,11 +988,14 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-12 gap-10 mb-12">
             <div className="col-span-12 md:col-span-4">
-              <img 
-                src="/logodark.png" 
-                alt="Vestiliza - Gülizar Ermiş" 
-                className="h-16 w-auto object-contain mb-4"
-              />
+              <div className="flex items-center gap-4 mb-4">
+                <img 
+                  src="/logodark.png" 
+                  alt="Vestiliza - Gülizar Ermiş" 
+                  className="h-16 w-auto object-contain"
+                />
+                <h2 className="text-2xl font-serif italic text-[#FAF8F5]">VESTILIZA, GÜLİZAR ERMİŞ</h2>
+              </div>
               <p className="text-[#FAF8F5]/50 text-sm leading-relaxed">
                 {t.footer.desc}
               </p>
