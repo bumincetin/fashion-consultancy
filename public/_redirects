@@ -1,1 +1,5 @@
-/* /index.html 200
+# Cloudflare Pages SPA Routing
+# Exclude static assets and index.html itself to prevent infinite loops
+/assets/* 200
+/index.html 200
+/*    /index.html   200
