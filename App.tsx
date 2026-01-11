@@ -243,13 +243,20 @@ const App: React.FC = () => {
     window.history.pushState({}, '', newPath);
   };
 
+  /* ─────────────────────────────────────────────────────────────────────────
+     NAVBUTTON - Mobile Optimized
+     
+     - Minimum touch target of 44px height
+     - Compact text on mobile, full text on desktop
+     - Uses active: instead of hover: for touch feedback
+     ───────────────────────────────────────────────────────────────────────── */
   const NavButton = ({ tab, label }: { tab: typeof activeTab, label: string }) => (
     <button 
       onClick={() => setActiveTab(tab)}
-      className={`px-2.5 sm:px-5 py-2 sm:py-2.5 text-[8px] sm:text-[10px] font-mono tracking-[0.1em] sm:tracking-[0.15em] uppercase transition-all duration-500 rounded-full whitespace-nowrap ${
+      className={`px-2 sm:px-4 py-2.5 sm:py-2.5 text-[7px] sm:text-[10px] font-mono tracking-[0.08em] sm:tracking-[0.15em] uppercase transition-all duration-300 rounded-full whitespace-nowrap min-h-[44px] flex items-center justify-center flex-shrink-0 ${
         activeTab === tab 
           ? 'bg-[#2C2825] text-[#FAF8F5]' 
-          : 'text-[#5C554D] hover:text-[#2C2825]'
+          : 'text-[#5C554D] active:text-[#2C2825] sm:hover:text-[#2C2825]'
       }`}
     >
       {label}
@@ -285,7 +292,8 @@ const App: React.FC = () => {
         <div className="absolute bottom-[20%] left-[10%] w-[400px] h-[400px] bg-[#D4A5A5]/5 rounded-full blur-[120px]" />
       </div>
 
-      <main className="relative z-10 pb-40">
+      {/* Main content - extra padding at bottom for floating navbar + language selector */}
+      <main className="relative z-10 pb-32 sm:pb-40" style={{ paddingBottom: 'max(8rem, calc(7rem + env(safe-area-inset-bottom)))' }}>
         <AnimatePresence mode="wait">
           {activeTab === 'home' && (
             <motion.div 
@@ -294,19 +302,20 @@ const App: React.FC = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              {/* Hero Section */}
-              <section className="min-h-screen flex flex-col justify-center px-6 pt-20 pb-32">
+              {/* Hero Section - Mobile optimized padding */}
+              <section className="min-h-screen flex flex-col justify-center px-4 sm:px-6 pt-16 sm:pt-20 pb-28 sm:pb-32">
                 <div className="max-w-7xl mx-auto w-full">
-                  <div className="grid grid-cols-12 gap-6 lg:gap-10 items-center">
+                  <div className="grid grid-cols-12 gap-4 sm:gap-6 lg:gap-10 items-center">
                     {/* Text Content */}
                     <div className="col-span-12 lg:col-span-6 order-2 lg:order-1">
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="mb-8"
+                        className="mb-6 sm:mb-8"
                       >
-                        <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif italic text-[#2C2825] leading-none mb-2">
+                        {/* Hero name - scales down properly on mobile to prevent overflow */}
+                        <h2 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif italic text-[#2C2825] leading-none mb-2">
                           Gülizar Ermiş
                         </h2>
                       </motion.div>
@@ -320,11 +329,12 @@ const App: React.FC = () => {
                         {t.hero.subtitle}
                       </motion.span>
                       
+                      {/* Main headline - uses clamp() in heading-hero for fluid scaling */}
                       <motion.h1 
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                        className="heading-hero mb-8"
+                        className="heading-hero mb-6 sm:mb-8"
                       >
                         {t.hero.title1}<br />
                         <span className="text-[#8C847A]">{t.hero.title2}</span><br />
@@ -379,18 +389,18 @@ const App: React.FC = () => {
                             showIndicators={true}
                           />
                         </div>
-                        {/* Floating accent card */}
+                        {/* Floating accent card - constrained to prevent mobile overflow */}
                         <motion.div 
                           initial={{ opacity: 0, x: 20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: 1 }}
-                          className="absolute -bottom-4 sm:-bottom-6 -left-2 sm:-left-6 glass-warm p-4 sm:p-6 rounded-2xl max-w-[180px] sm:max-w-[220px] z-20"
+                          className="absolute -bottom-4 sm:-bottom-6 left-0 sm:-left-6 glass-warm p-3 sm:p-6 rounded-2xl max-w-[160px] sm:max-w-[220px] z-20"
                         >
                           <div className="flex items-center gap-2 mb-2">
-                            <Star size={14} className="text-[#C5A059] fill-[#C5A059] flex-shrink-0" />
-                            <span className="text-[10px] sm:text-[11px] font-mono text-[#5C554D] truncate">{t.hero.trustedBy}</span>
+                            <Star size={12} className="text-[#C5A059] fill-[#C5A059] flex-shrink-0 sm:w-[14px] sm:h-[14px]" />
+                            <span className="text-[9px] sm:text-[11px] font-mono text-[#5C554D] truncate">{t.hero.trustedBy}</span>
                           </div>
-                          <p className="text-base sm:text-lg font-serif italic text-[#2C2825] leading-tight">{t.hero.satisfiedClients}</p>
+                          <p className="text-sm sm:text-lg font-serif italic text-[#2C2825] leading-tight">{t.hero.satisfiedClients}</p>
                         </motion.div>
                       </div>
                     </motion.div>
@@ -658,18 +668,19 @@ const App: React.FC = () => {
                           {t.about.bio3}
                         </p>
                       </div>
-                      <div className="flex gap-8 mt-8 pt-8 border-t border-[#2C2825]/10">
-                        <div>
-                          <p className="text-3xl font-serif italic text-[#C4A484]">{t.about.stat1Value}</p>
-                          <p className="text-[10px] font-mono uppercase tracking-wider text-[#8C847A]">{t.about.stat1Label}</p>
+                      {/* Stats - Grid on mobile, flex on desktop to prevent overflow */}
+                      <div className="grid grid-cols-3 gap-4 sm:flex sm:gap-8 mt-8 pt-8 border-t border-[#2C2825]/10">
+                        <div className="min-w-0">
+                          <p className="text-2xl sm:text-3xl font-serif italic text-[#C4A484]">{t.about.stat1Value}</p>
+                          <p className="text-[8px] sm:text-[10px] font-mono uppercase tracking-wider text-[#8C847A] truncate">{t.about.stat1Label}</p>
                         </div>
-                        <div>
-                          <p className="text-3xl font-serif italic text-[#C4A484]">{t.about.stat2Value}</p>
-                          <p className="text-[10px] font-mono uppercase tracking-wider text-[#8C847A]">{t.about.stat2Label}</p>
+                        <div className="min-w-0">
+                          <p className="text-2xl sm:text-3xl font-serif italic text-[#C4A484]">{t.about.stat2Value}</p>
+                          <p className="text-[8px] sm:text-[10px] font-mono uppercase tracking-wider text-[#8C847A] truncate">{t.about.stat2Label}</p>
                         </div>
-                        <div>
-                          <p className="text-3xl font-serif italic text-[#C4A484]">{t.about.stat3Value}</p>
-                          <p className="text-[10px] font-mono uppercase tracking-wider text-[#8C847A]">{t.about.stat3Label}</p>
+                        <div className="min-w-0">
+                          <p className="text-2xl sm:text-3xl font-serif italic text-[#C4A484]">{t.about.stat3Value}</p>
+                          <p className="text-[8px] sm:text-[10px] font-mono uppercase tracking-wider text-[#8C847A] truncate">{t.about.stat3Label}</p>
                         </div>
                       </div>
                     </motion.div>
@@ -931,33 +942,58 @@ const App: React.FC = () => {
         </AnimatePresence>
       </main>
 
-      {/* Bottom Glass Navbar */}
-      <nav className="fixed bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-[100]">
-        <div className="glass px-4 sm:px-5 py-2.5 sm:py-3 rounded-full flex items-center justify-center gap-1.5 sm:gap-2 shadow-lg">
+      {/* ═══════════════════════════════════════════════════════════════════════
+          BOTTOM GLASS NAVBAR - Mobile Optimized
+          
+          Mobile fixes:
+          - Constrained max-width prevents overflow
+          - Removed logo on mobile to save space
+          - Reduced padding and gaps on small screens
+          - Simplified "Book" button text on mobile
+          - Language selector moved below with smaller buttons
+          - Safe area inset support for notched devices
+          ═══════════════════════════════════════════════════════════════════════ */}
+      <nav 
+        className="fixed left-1/2 -translate-x-1/2 z-[100] w-[calc(100%-1rem)] sm:w-auto max-w-[calc(100vw-1rem)]"
+        style={{
+          bottom: 'max(0.75rem, env(safe-area-inset-bottom))',
+        }}
+      >
+        <div className="glass px-2 sm:px-5 py-2 sm:py-3 rounded-full flex items-center justify-center gap-1 sm:gap-2 shadow-lg overflow-x-auto no-scrollbar">
+          {/* Logo - hidden on smaller screens */}
           <img 
             src="/logogulizar.png" 
             alt="Gülizar Ermiş Logo" 
             className="hidden xl:block h-10 w-10 rounded-full object-contain flex-shrink-0 mr-2 sm:mr-3"
           />
+          
+          {/* Navigation buttons - more compact on mobile */}
           <NavButton tab="home" label={t.nav.aperitivo} />
           <NavButton tab="experiences" label={t.nav.experiences || 'Experiences'} />
-          <NavButton tab="stores" label={t.nav.stores} />
+          {/* Hide Stores on very small screens */}
+          <span className="hidden xs:inline">
+            <NavButton tab="stores" label={t.nav.stores} />
+          </span>
           <NavButton tab="methodology" label={t.nav.methodology} />
-          <div className="w-px h-5 sm:h-6 bg-[#2C2825]/10 mx-1 sm:mx-2" />
+          
+          <div className="w-px h-5 sm:h-6 bg-[#2C2825]/10 mx-0.5 sm:mx-2 flex-shrink-0" />
+          
+          {/* Book button - touch target minimum 44px */}
           <button 
             onClick={() => setIsBookingModalOpen(true)}
-            className="bg-[#2C2825] text-[#FAF8F5] px-3 sm:px-5 py-2 sm:py-2.5 text-[8px] sm:text-[10px] font-mono tracking-[0.1em] sm:tracking-[0.15em] uppercase rounded-full hover:bg-[#C4A484] transition-all whitespace-nowrap"
+            className="bg-[#2C2825] text-[#FAF8F5] px-3 sm:px-5 py-2.5 sm:py-2.5 text-[8px] sm:text-[10px] font-mono tracking-[0.1em] sm:tracking-[0.15em] uppercase rounded-full active:bg-[#C4A484] sm:hover:bg-[#C4A484] transition-all whitespace-nowrap flex-shrink-0 min-h-[44px] flex items-center"
           >
             <span className="hidden sm:inline">{t.nav.book}</span>
             <span className="sm:hidden">Book</span>
           </button>
           
-          <div className="hidden md:flex gap-1.5 px-3 border-l border-[#2C2825]/10 ml-2 items-center">
+          {/* Desktop language selector */}
+          <div className="hidden lg:flex gap-1.5 px-3 border-l border-[#2C2825]/10 ml-2 items-center">
             {(['en', 'tr', 'it'] as Language[]).map(l => (
               <button 
                 key={l}
                 onClick={() => changeLanguage(l)}
-                className={`text-[10px] font-mono uppercase px-3 py-1.5 rounded-full transition-all min-w-[36px] text-center ${
+                className={`text-[10px] font-mono uppercase px-3 py-1.5 rounded-full transition-all min-w-[36px] min-h-[36px] text-center flex items-center justify-center ${
                   lang === l 
                     ? 'bg-[#2C2825] text-[#FAF8F5]' 
                     : 'text-[#5C554D] hover:text-[#2C2825] hover:bg-[#2C2825]/5'
@@ -969,72 +1005,122 @@ const App: React.FC = () => {
           </div>
         </div>
         
-        {/* Mobile Language Selector */}
-        <div className="md:hidden flex justify-center gap-3 mt-2">
+        {/* Mobile Language Selector - positioned below main nav */}
+        <div 
+          className="lg:hidden flex justify-center gap-2 mt-2"
+          style={{
+            paddingBottom: 'env(safe-area-inset-bottom, 0px)',
+          }}
+        >
           {(['en', 'tr', 'it'] as Language[]).map(l => (
             <button 
               key={l}
               onClick={() => changeLanguage(l)}
-              className={`text-[9px] font-mono uppercase px-2 py-1 rounded-full ${lang === l ? 'bg-[#2C2825] text-white' : 'bg-white/80 text-[#8C847A]'} transition-all shadow-sm`}
+              className={`text-[9px] font-mono uppercase px-3 py-1.5 rounded-full min-w-[40px] min-h-[32px] flex items-center justify-center ${
+                lang === l 
+                  ? 'bg-[#2C2825] text-white' 
+                  : 'bg-white/90 text-[#8C847A] active:bg-[#2C2825]/10'
+              } transition-all shadow-sm`}
             >
-              {l}
+              {l.toUpperCase()}
             </button>
           ))}
         </div>
       </nav>
 
-      {/* Footer */}
-      <footer className="bg-[#2C2825] py-16 px-6">
+      {/* ═══════════════════════════════════════════════════════════════════════
+          FOOTER - Mobile Optimized
+          
+          Fixes:
+          - Simplified grid on mobile (stacked layout)
+          - Logo container uses flex-wrap to prevent overflow
+          - Reduced text sizes for mobile
+          - Proper spacing and gaps
+          - Safe area padding for notched devices
+          ═══════════════════════════════════════════════════════════════════════ */}
+      <footer 
+        className="bg-[#2C2825] py-12 sm:py-16 px-4 sm:px-6"
+        style={{
+          paddingBottom: 'max(3rem, calc(3rem + env(safe-area-inset-bottom)))',
+        }}
+      >
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-12 gap-10 mb-12">
-            <div className="col-span-12 md:col-span-4">
-              <div className="flex items-center gap-4 mb-4">
+          {/* Main footer grid - stacks on mobile */}
+          <div className="grid grid-cols-2 sm:grid-cols-12 gap-8 sm:gap-10 mb-12">
+            {/* Logo and description - full width on mobile */}
+            <div className="col-span-2 sm:col-span-12 md:col-span-4">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-4">
                 <img 
                   src="/logodark.png" 
                   alt="Vestiliza - Gülizar Ermiş" 
-                  className="h-16 w-auto object-contain"
+                  className="h-12 sm:h-16 w-auto object-contain flex-shrink-0"
                 />
-                <div>
-                  <h2 className="text-2xl font-serif italic text-[#FAF8F5]">VESTILIZA</h2>
-                  <h2 className="text-2xl font-serif italic text-[#FAF8F5]">GÜLİZAR ERMİŞ</h2>
+                <div className="min-w-0">
+                  <h2 className="text-xl sm:text-2xl font-serif italic text-[#FAF8F5] truncate">VESTILIZA</h2>
+                  <h2 className="text-xl sm:text-2xl font-serif italic text-[#FAF8F5] truncate">GÜLİZAR ERMİŞ</h2>
                 </div>
               </div>
               <p className="text-[#FAF8F5]/50 text-sm leading-relaxed">
                 {t.footer.desc}
               </p>
             </div>
-            <div className="col-span-6 md:col-span-2 md:col-start-7">
-              <h4 className="label-small text-[#C4A484] mb-4">{t.footer.contact}</h4>
-              <div className="space-y-2 text-sm text-[#FAF8F5]/60">
-                <p>vestilizamilano@gmail.com</p>
+            
+            {/* Contact */}
+            <div className="col-span-1 sm:col-span-6 md:col-span-2 md:col-start-7">
+              <h4 className="label-small text-[#C4A484] mb-3 sm:mb-4">{t.footer.contact}</h4>
+              <div className="space-y-2 text-xs sm:text-sm text-[#FAF8F5]/60">
+                <p className="break-all">vestilizamilano@gmail.com</p>
                 <p>+39 351 302 5810</p>
               </div>
             </div>
-            <div className="col-span-6 md:col-span-2">
-              <h4 className="label-small text-[#C4A484] mb-4">{t.footer.location}</h4>
-              <div className="space-y-2 text-sm text-[#FAF8F5]/60">
+            
+            {/* Location */}
+            <div className="col-span-1 sm:col-span-6 md:col-span-2">
+              <h4 className="label-small text-[#C4A484] mb-3 sm:mb-4">{t.footer.location}</h4>
+              <div className="space-y-2 text-xs sm:text-sm text-[#FAF8F5]/60">
                 <p>{t.footer.remote}</p>
                 <p>Milano, Italy</p>
               </div>
             </div>
-            <div className="col-span-12 md:col-span-2">
-              <h4 className="label-small text-[#C4A484] mb-4">{t.footer.follow}</h4>
-              <div className="flex gap-4">
-                <a href="https://www.instagram.com/gulizarermiss/" target="_blank" rel="noopener noreferrer">
-                  <Instagram size={18} className="text-[#FAF8F5]/60 hover:text-[#FAF8F5] transition-colors cursor-pointer" />
+            
+            {/* Social - full width on smallest screens */}
+            <div className="col-span-2 sm:col-span-12 md:col-span-2">
+              <h4 className="label-small text-[#C4A484] mb-3 sm:mb-4">{t.footer.follow}</h4>
+              <div className="flex gap-5 sm:gap-4">
+                {/* Social links with proper touch targets (44x44px min) */}
+                <a 
+                  href="https://www.instagram.com/gulizarermiss/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-11 h-11 flex items-center justify-center rounded-full hover:bg-white/5 active:bg-white/10 transition-colors"
+                  aria-label="Instagram"
+                >
+                  <Instagram size={20} className="text-[#FAF8F5]/60" />
                 </a>
-                <a href="mailto:vestilizamilano@gmail.com">
-                  <Mail size={18} className="text-[#FAF8F5]/60 hover:text-[#FAF8F5] transition-colors cursor-pointer" />
+                <a 
+                  href="mailto:vestilizamilano@gmail.com"
+                  className="w-11 h-11 flex items-center justify-center rounded-full hover:bg-white/5 active:bg-white/10 transition-colors"
+                  aria-label="Email"
+                >
+                  <Mail size={20} className="text-[#FAF8F5]/60" />
                 </a>
-                <Globe size={18} className="text-[#FAF8F5]/60 hover:text-[#FAF8F5] transition-colors cursor-pointer" />
+                <a 
+                  href="#"
+                  className="w-11 h-11 flex items-center justify-center rounded-full hover:bg-white/5 active:bg-white/10 transition-colors"
+                  aria-label="Website"
+                >
+                  <Globe size={20} className="text-[#FAF8F5]/60" />
+                </a>
               </div>
             </div>
           </div>
-          <div className="border-t border-[#FAF8F5]/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-[#FAF8F5]/30">
+          
+          {/* Bottom bar */}
+          <div className="border-t border-[#FAF8F5]/10 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
+            <p className="text-[8px] sm:text-[9px] font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[#FAF8F5]/30 text-center sm:text-left">
               {t.footer.reserved}
             </p>
-            <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-[#FAF8F5]/30">
+            <p className="text-[8px] sm:text-[9px] font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[#FAF8F5]/30 text-center sm:text-right">
               {t.footer.crafted}
             </p>
           </div>

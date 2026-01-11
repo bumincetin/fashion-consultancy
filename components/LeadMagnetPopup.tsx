@@ -166,16 +166,35 @@ export const LeadMagnetPopup: React.FC<LeadMagnetPopupProps> = ({ lang }) => {
     setShowTermsModal(true);
   };
 
+  /* ═══════════════════════════════════════════════════════════════════════════
+     LEAD MAGNET POPUP - Mobile Optimized
+     
+     Fixes:
+     - z-index increased to z-[115] to layer properly with other modals
+     - Close button enlarged to 48x48px for touch targets
+     - Padding reduced on mobile
+     - Form layout optimized for small screens
+     - Uses dvh for iOS Safari address bar handling
+     ═══════════════════════════════════════════════════════════════════════════ */
   return (
     <>
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-[70] flex items-center justify-center p-4">
+          <div 
+            className="fixed inset-0 z-[115] flex items-center justify-center"
+            style={{
+              padding: 'clamp(0.75rem, 3vw, 1rem)',
+              paddingTop: 'max(clamp(0.75rem, 3vw, 1rem), env(safe-area-inset-top))',
+              paddingBottom: 'max(clamp(0.75rem, 3vw, 1rem), env(safe-area-inset-bottom))',
+            }}
+            role="dialog"
+            aria-modal="true"
+          >
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-[#2C2825]/40 backdrop-blur-sm" 
+              className="absolute inset-0 bg-[#2C2825]/50" 
               onClick={handleClose} 
             />
             
@@ -184,10 +203,22 @@ export const LeadMagnetPopup: React.FC<LeadMagnetPopupProps> = ({ lang }) => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 30, scale: 0.95 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="relative bg-[#FAF8F5] w-full max-w-md rounded-3xl shadow-2xl overflow-hidden"
+              className="relative bg-[#FAF8F5] w-full max-w-md rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden"
+              style={{
+                maxHeight: 'min(92dvh, calc(100vh - 2rem))',
+              }}
             >
+              {/* Close button - positioned on header with 48x48px touch target */}
+              <button 
+                onClick={handleClose}
+                aria-label="Close popup"
+                className="absolute top-3 right-3 sm:top-4 sm:right-4 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white/70 active:bg-white/20 sm:hover:bg-white/20 transition-colors z-10"
+              >
+                <X size={20} />
+              </button>
+              
               {/* Decorative Header */}
-              <div className="bg-gradient-to-br from-[#2C2825] to-[#3a3632] p-8 text-center relative overflow-hidden">
+              <div className="bg-gradient-to-br from-[#2C2825] to-[#3a3632] p-6 sm:p-8 text-center relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#C4A484] rounded-full blur-3xl" />
                   <div className="absolute bottom-0 left-0 w-24 h-24 bg-[#D4A5A5] rounded-full blur-2xl" />
@@ -197,28 +228,21 @@ export const LeadMagnetPopup: React.FC<LeadMagnetPopupProps> = ({ lang }) => {
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: 0.2, type: 'spring' }}
-                  className="w-16 h-16 rounded-full bg-[#C4A484]/20 flex items-center justify-center mx-auto mb-4"
+                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#C4A484]/20 flex items-center justify-center mx-auto mb-4"
                 >
-                  <Sparkles size={28} className="text-[#C4A484]" />
+                  <Sparkles className="w-6 h-6 sm:w-7 sm:h-7 text-[#C4A484]" />
                 </motion.div>
                 
-                <h3 className="text-2xl font-serif italic text-white mb-1">
+                <h3 className="text-xl sm:text-2xl font-serif italic text-white mb-1 pr-8">
                   {content.title}
                 </h3>
-                <p className="text-[#C4A484] text-sm font-mono uppercase tracking-[0.2em]">
+                <p className="text-[#C4A484] text-xs sm:text-sm font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em]">
                   {content.subtitle}
                 </p>
               </div>
 
               {/* Content */}
-              <div className="p-8">
-                <button 
-                  onClick={handleClose} 
-                  className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:text-white transition-colors"
-                >
-                  <X size={16} />
-                </button>
-
+              <div className="p-5 sm:p-8 overflow-y-auto overscroll-contain" style={{ WebkitOverflowScrolling: 'touch' }}>
                 {!isSubmitted ? (
                   <>
                     <p className="text-[#4a4542] text-sm leading-relaxed mb-6">
@@ -248,7 +272,8 @@ export const LeadMagnetPopup: React.FC<LeadMagnetPopupProps> = ({ lang }) => {
                         />
                       </div>
 
-                      <div className="flex gap-2 mb-4">
+                      {/* Email form - stacks on small screens */}
+                      <div className="flex flex-col sm:flex-row gap-2 mb-4">
                         <div className="relative flex-1">
                           <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-[#9e968c]" size={16} />
                           <input
@@ -258,15 +283,22 @@ export const LeadMagnetPopup: React.FC<LeadMagnetPopupProps> = ({ lang }) => {
                             placeholder={content.emailPlaceholder}
                             required
                             disabled={isLoading}
-                            className="w-full bg-white border border-[#2C2825]/10 rounded-xl pl-11 pr-4 py-4 text-sm outline-none focus:border-[#C4A484] transition-colors placeholder:text-[#9e968c] disabled:opacity-50"
+                            className="w-full bg-white border border-[#2C2825]/10 rounded-xl pl-11 pr-4 py-4 text-base sm:text-sm outline-none focus:border-[#C4A484] transition-colors placeholder:text-[#9e968c] disabled:opacity-50"
                           />
                         </div>
                         <button 
                           type="submit"
                           disabled={isLoading}
-                          className="bg-[#2C2825] text-[#FAF8F5] px-6 py-4 rounded-xl text-xs font-mono uppercase tracking-wider hover:bg-[#C4A484] transition-all flex items-center gap-2 disabled:opacity-50"
+                          className="bg-[#2C2825] text-[#FAF8F5] px-6 py-4 rounded-xl text-xs font-mono uppercase tracking-wider active:bg-[#C4A484] sm:hover:bg-[#C4A484] transition-all flex items-center justify-center gap-2 disabled:opacity-50 min-h-[52px] w-full sm:w-auto"
                         >
-                          {isLoading ? <Loader2 size={14} className="animate-spin" /> : <Download size={14} />}
+                          {isLoading ? (
+                            <Loader2 size={16} className="animate-spin" />
+                          ) : (
+                            <>
+                              <Download size={16} />
+                              <span className="sm:hidden">{content.buttonText}</span>
+                            </>
+                          )}
                         </button>
                       </div>
 

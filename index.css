@@ -678,11 +678,16 @@ select:focus, input:focus {
   .xs\:block {
     display: block !important;
   }
+  
+  .xs\:inline {
+    display: inline !important;
+  }
 }
 
 /* Hide by default, show on xs+ */
 .hidden.xs\:flex,
-.hidden.xs\:block {
+.hidden.xs\:block,
+.hidden.xs\:inline {
   display: none;
 }
 
@@ -694,6 +699,30 @@ select:focus, input:focus {
   .hidden.xs\:block {
     display: block !important;
   }
+  
+  .hidden.xs\:inline {
+    display: inline !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   UTILITY: Hide scrollbar while keeping functionality
+   ───────────────────────────────────────────────────────────────────────────── */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   UTILITY: Smooth scroll with momentum for iOS
+   ───────────────────────────────────────────────────────────────────────────── */
+.scroll-touch {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 /* Print styles */

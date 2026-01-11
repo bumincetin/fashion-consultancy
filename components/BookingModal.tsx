@@ -229,15 +229,34 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, lan
     }, 300);
   };
 
+  /* ═══════════════════════════════════════════════════════════════════════════
+     BOOKING MODAL - Mobile Optimized
+     
+     Fixes:
+     - z-index increased to z-[120] to be above navbar and WhatsApp button
+     - Close button increased to 48x48px for touch targets
+     - Padding reduced on mobile for more content space
+     - Uses dynamic viewport height (dvh) for iOS Safari
+     ═══════════════════════════════════════════════════════════════════════════ */
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 md:p-6">
+        <div 
+          className="fixed inset-0 z-[120] flex items-center justify-center"
+          style={{
+            padding: 'clamp(0.5rem, 2vw, 1.5rem)',
+            paddingTop: 'max(clamp(0.5rem, 2vw, 1.5rem), env(safe-area-inset-top))',
+            paddingBottom: 'max(clamp(0.5rem, 2vw, 1.5rem), env(safe-area-inset-bottom))',
+          }}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="booking-modal-title"
+        >
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-[#2C2825]/30 backdrop-blur-sm" 
+            className="absolute inset-0 bg-[#2C2825]/40" 
             onClick={handleClose} 
           />
           
@@ -246,25 +265,29 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, lan
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.98 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="relative bg-[#FAF8F5] w-full max-w-lg max-h-[90vh] rounded-3xl shadow-2xl flex flex-col overflow-hidden"
+            className="relative bg-[#FAF8F5] w-full max-w-lg rounded-2xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden"
+            style={{
+              maxHeight: 'min(92dvh, calc(100vh - 2rem))',
+            }}
           >
+            {/* Close button - 48x48px touch target */}
             <button 
-              onClick={handleClose} 
-              className="absolute top-6 right-6 w-10 h-10 rounded-full bg-[#2C2825]/5 flex items-center justify-center text-[#5C554D] hover:bg-[#2C2825]/10 hover:text-[#2C2825] transition-all z-20"
+              onClick={handleClose}
+              aria-label="Close booking modal"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 w-12 h-12 rounded-full bg-[#2C2825]/5 flex items-center justify-center text-[#5C554D] active:bg-[#2C2825]/15 sm:hover:bg-[#2C2825]/10 transition-all z-20"
             >
-              <X size={18} />
+              <X size={20} />
             </button>
 
             {step === 'form' && (
               <div 
-                className="p-8 md:p-12 overflow-y-auto flex-1 min-h-0" 
+                className="p-5 sm:p-8 md:p-12 overflow-y-auto flex-1 min-h-0 overscroll-contain" 
                 style={{ 
                   WebkitOverflowScrolling: 'touch',
-                  overscrollBehavior: 'contain'
                 }}
               >
-                <div className="mb-8">
-                  <h2 className="text-3xl font-serif italic text-[#2C2825] mb-2">{t.title}</h2>
+                <div className="mb-6 sm:mb-8 pr-8 sm:pr-0">
+                  <h2 id="booking-modal-title" className="text-2xl sm:text-3xl font-serif italic text-[#2C2825] mb-2">{t.title}</h2>
                   <p className="text-sm text-[#8C847A]">{t.desc}</p>
                 </div>
 
