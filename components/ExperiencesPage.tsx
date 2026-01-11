@@ -8,8 +8,6 @@ import {
   Star,
   ShoppingBag,
   Sparkles,
-  Camera,
-  Ticket,
   Video,
   Map
 } from 'lucide-react';
@@ -61,7 +59,7 @@ const EXPERIENCES = {
         'Ongoing support for styling questions'
       ],
       insiderNote: 'True luxury isn\'t about owning more—it\'s about owning better. Every piece we select tells a story of Italian craftsmanship.',
-      image: '/gulizar4.jpg',
+      image: 'wardrobe.jpg',
       locations: ['Your Hotel/Residence', 'Selected Boutiques', 'Tailor Appointments']
     },
     {
@@ -70,7 +68,7 @@ const EXPERIENCES = {
       name: 'Milan Cultural & Fashion Journey',
       tagline: 'Where History Meets Haute Couture',
       duration: 'Full Day (8 hours)',
-      price: 'from €350',
+      price: 'from €150',
       description: 'Experience Milan as only a local can show you. This immersive cultural tour combines the city\'s architectural masterpieces with its fashion heritage, all entrance fees included.',
       whatToExpect: [
         'The magnificent Duomo di Milano - exterior and rooftop access',
@@ -113,7 +111,7 @@ const EXPERIENCES = {
       name: 'Virtual Style Consultation',
       tagline: 'Expert Guidance, Wherever You Are',
       duration: '60-90 minutes',
-      price: '€120',
+      price: '€80',
       description: 'Can\'t make it to Milan? Bring Milan\'s fashion expertise to you. A comprehensive virtual consultation that delivers personalized style advice and shopping recommendations.',
       whatToExpect: [
         'Pre-session wardrobe questionnaire',
@@ -125,7 +123,7 @@ const EXPERIENCES = {
         '2 weeks of email support for questions'
       ],
       insiderNote: 'Distance shouldn\'t stop you from elevating your style. I\'ll bring Milan\'s fashion wisdom directly to your screen.',
-      image: '/gulizar2.jpg',
+      image: 'virtual.jpg',
       locations: ['Online via Zoom/Google Meet']
     }
   ],
@@ -169,7 +167,7 @@ const EXPERIENCES = {
         'Stil soruları için sürekli destek'
       ],
       insiderNote: 'Gerçek lüks daha fazla sahip olmakla ilgili değil—daha iyi sahip olmakla ilgili. Seçtiğimiz her parça İtalyan işçiliğinin hikayesini anlatıyor.',
-      image: '/gulizar4.jpg',
+      image: 'wardrobe.jpg',
       locations: ['Oteliniz/İkametgahınız', 'Seçilmiş Butikler', 'Terzi Randevuları']
     },
     {
@@ -178,7 +176,7 @@ const EXPERIENCES = {
       name: 'Milano Kültür & Moda Yolculuğu',
       tagline: 'Tarihin Haute Couture ile Buluştuğu Yer',
       duration: 'Tam Gün (8 saat)',
-      price: '€350\'den başlayan',
+      price: '€150\'den başlayan',
       description: 'Milano\'yu sadece bir yerel olarak gösterebileceğimiz şekilde deneyimleyin. Bu sürükleyici kültür turu, şehrin mimari şaheserlerini moda mirasıyla birleştiriyor, tüm giriş ücretleri dahil.',
       whatToExpect: [
         'Muhteşem Duomo di Milano - dış ve çatı erişimi',
@@ -221,7 +219,7 @@ const EXPERIENCES = {
       name: 'Sanal Stil Danışmanlığı',
       tagline: 'Uzman Rehberliği, Nerede Olursanız Olun',
       duration: '60-90 dakika',
-      price: '€120',
+      price: '€80',
       description: 'Milano\'ya gelemez misiniz? Milano\'nun moda uzmanlığını size getirin. Kişiselleştirilmiş stil tavsiyeleri ve alışveriş önerileri sunan kapsamlı bir sanal danışmanlık.',
       whatToExpect: [
         'Seans öncesi gardırop anketi',
@@ -233,7 +231,7 @@ const EXPERIENCES = {
         'Sorular için 2 hafta e-posta desteği'
       ],
       insiderNote: 'Mesafe stilinizi yükseltmenizi engellememeli. Milano\'nun moda bilgeliğini doğrudan ekranınıza getireceğim.',
-      image: '/gulizar2.jpg',
+      image: 'virtual.jpg',
       locations: ['Zoom/Google Meet üzerinden Çevrimiçi']
     }
   ],
@@ -277,7 +275,7 @@ const EXPERIENCES = {
         'Supporto continuo per domande sullo styling'
       ],
       insiderNote: 'Il vero lusso non riguarda possedere di più—riguarda possedere meglio. Ogni pezzo che selezioniamo racconta una storia di artigianato italiano.',
-      image: '/gulizar4.jpg',
+      image: 'wardrobe.jpg',
       locations: ['Il Tuo Hotel/Residenza', 'Boutique Selezionate', 'Appuntamenti dal Sarto']
     },
     {
@@ -286,7 +284,7 @@ const EXPERIENCES = {
       name: 'Viaggio Culturale & Moda Milano',
       tagline: 'Dove la Storia Incontra l\'Haute Couture',
       duration: 'Giornata Intera (8 ore)',
-      price: 'da €350',
+      price: 'da €150',
       description: 'Vivi Milano come solo un locale può mostrartela. Questo tour culturale immersivo combina i capolavori architettonici della città con il suo patrimonio della moda, tutti i biglietti d\'ingresso inclusi.',
       whatToExpect: [
         'Il magnifico Duomo di Milano - accesso esterno e terrazza',
@@ -329,7 +327,7 @@ const EXPERIENCES = {
       name: 'Consulenza di Stile Virtuale',
       tagline: 'Guida Esperta, Ovunque Tu Sia',
       duration: '60-90 minuti',
-      price: '€120',
+      price: '€80',
       description: 'Non puoi venire a Milano? Porta l\'esperienza di moda milanese da te. Una consulenza virtuale completa che offre consigli di stile personalizzati e raccomandazioni per gli acquisti.',
       whatToExpect: [
         'Questionario pre-sessione sul guardaroba',
@@ -341,7 +339,7 @@ const EXPERIENCES = {
         '2 settimane di supporto via email per domande'
       ],
       insiderNote: 'La distanza non dovrebbe impedirti di elevare il tuo stile. Porterò la saggezza della moda milanese direttamente sul tuo schermo.',
-      image: '/gulizar2.jpg',
+      image: 'virtual.jpg',
       locations: ['Online tramite Zoom/Google Meet']
     }
   ]
