@@ -29,7 +29,7 @@ const getStructuredData = (lang: Language) => ({
   "@type": "LocalBusiness",
   "name": "Vestiliza - Gülizar Ermiş Fashion Consultancy",
   "description": SEO_DATA[lang].description,
-  "image": "https://vestiliza.com/gulizar1.jpg",
+  "image": "https://vestiliza.com/gulizar4.jpg",
   "url": "https://vestiliza.com",
   "telephone": "+39-351-302-5810",
   "email": "vestilizamilano@gmail.com",
@@ -81,22 +81,24 @@ export const SEOHead: React.FC<SEOHeadProps> = ({ lang }) => {
       <link rel="icon" type="image/png" href="/logogulizar.png" />
       <link rel="apple-touch-icon" href="/logogulizar.png" />
       
-      {/* Open Graph */}
+      {/* Open Graph - Using gulizar4.jpg (Milan Duomo background) for best social preview */}
       <meta property="og:title" content={seo.title} />
       <meta property="og:description" content={seo.description} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:image" content="https://vestiliza.com/gulizar1.jpg" />
+      <meta property="og:image" content="https://vestiliza.com/gulizar4.jpg" />
+      <meta property="og:image:alt" content="Gülizar Ermiş - Fashion Consultant in Milan" />
       <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
+      <meta property="og:image:height" content="1500" />
       <meta property="og:site_name" content="Vestiliza - Gülizar Ermiş" />
       <meta property="og:locale" content={lang === 'en' ? 'en_US' : lang === 'tr' ? 'tr_TR' : 'it_IT'} />
       
-      {/* Twitter */}
+      {/* Twitter - Using gulizar4.jpg for preview */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={seo.title} />
       <meta name="twitter:description" content={seo.description} />
-      <meta name="twitter:image" content="https://vestiliza.com/gulizar1.jpg" />
+      <meta name="twitter:image" content="https://vestiliza.com/gulizar4.jpg" />
+      <meta name="twitter:image:alt" content="Gülizar Ermiş - Fashion Consultant in Milan" />
       <meta name="twitter:creator" content="@gulizarermiss" />
       
       {/* Alternate language links for international SEO */}

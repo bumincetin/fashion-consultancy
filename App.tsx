@@ -170,7 +170,7 @@ const SectionHeader: React.FC<{
   );
 };
 
-// Testimonial Slider Component
+// Testimonial Slider Component - Mobile Optimized
 const TestimonialSlider: React.FC<{ testimonials: any[] }> = ({ testimonials }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -183,37 +183,39 @@ const TestimonialSlider: React.FC<{ testimonials: any[] }> = ({ testimonials }) 
   }, [testimonials.length]);
 
   return (
-    <div className="relative h-[300px] md:h-[350px] overflow-hidden">
+    <div className="relative min-h-[280px] sm:min-h-[300px] md:min-h-[350px] py-4">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -100 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute inset-0 flex flex-col justify-center"
+          className="flex flex-col justify-center px-2"
         >
-          <blockquote className="text-2xl sm:text-3xl md:text-4xl font-serif italic text-white/90 leading-relaxed mb-10 px-4">
-            {testimonials[currentIndex].quote}
+          {/* Quote text - responsive sizing, visible on all screens */}
+          <blockquote className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-serif italic text-white/90 leading-relaxed sm:leading-relaxed mb-6 sm:mb-10 text-center">
+            "{testimonials[currentIndex].quote}"
           </blockquote>
           <div className="flex items-center justify-center">
-            <div className="text-left">
-              <p className="text-white font-medium">{testimonials[currentIndex].author}</p>
-              <p className="text-white/50 text-sm">{testimonials[currentIndex].role}</p>
+            <div className="text-center">
+              <p className="text-white font-medium text-sm sm:text-base">{testimonials[currentIndex].author}</p>
+              <p className="text-white/50 text-xs sm:text-sm">{testimonials[currentIndex].role}</p>
             </div>
           </div>
         </motion.div>
       </AnimatePresence>
       
-      {/* Indicator dots */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+      {/* Indicator dots - larger touch targets on mobile */}
+      <div className="flex justify-center gap-2 mt-6 sm:mt-8">
         {testimonials.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`w-2 h-2 rounded-full transition-all ${
-              index === currentIndex ? 'bg-[#C4A484] w-8' : 'bg-white/30'
+            className={`h-2 rounded-full transition-all min-w-[32px] min-h-[32px] flex items-center justify-center ${
+              index === currentIndex ? 'bg-[#C4A484]' : 'bg-white/30'
             }`}
+            style={{ width: index === currentIndex ? '2rem' : '0.5rem' }}
             aria-label={`Go to testimonial ${index + 1}`}
           />
         ))}
