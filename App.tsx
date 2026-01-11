@@ -275,8 +275,8 @@ const App: React.FC = () => {
     setIsBookingModalOpen(true);
   };
 
+  // Root container - CRITICAL: overflow-x-hidden prevents horizontal scroll
   return (
-    {/* Root container - CRITICAL: overflow-x-hidden prevents horizontal scroll */}
     <div className="min-h-screen bg-[#FAF8F5] text-[#2C2825] overflow-x-hidden w-full max-w-[100vw]">
       {/* SEO Head - Dynamic meta tags per language */}
       <SEOHead lang={lang} />
