@@ -58,17 +58,25 @@
 
 html {
   scroll-behavior: smooth;
+  /* CRITICAL: Prevent horizontal overflow at the root level */
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {
   font-family: var(--font-sans);
   background-color: var(--bg-cream);
   color: var(--text-primary);
+  /* CRITICAL: Prevent horizontal overflow */
   overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   line-height: 1.6;
+  /* Prevent iOS bounce causing layout issues */
+  position: relative;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────

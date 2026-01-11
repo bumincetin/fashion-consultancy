@@ -23,10 +23,11 @@ export const WhatsAppButton: React.FC = () => {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
-      className="fixed right-3 sm:right-6 z-[110] group"
+      className="fixed z-[110] group"
       style={{
-        // Position above navbar: mobile navbar ~60px + lang selector ~32px + gap
-        bottom: 'max(6.5rem, calc(100px + env(safe-area-inset-bottom)))',
+        // Position: safe distance from edge, above navbar
+        right: 'max(0.75rem, env(safe-area-inset-right, 0.75rem))',
+        bottom: 'max(7rem, calc(120px + env(safe-area-inset-bottom)))',
       }}
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}

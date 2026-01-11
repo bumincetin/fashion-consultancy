@@ -244,16 +244,16 @@ const App: React.FC = () => {
   };
 
   /* ─────────────────────────────────────────────────────────────────────────
-     NAVBUTTON - Mobile Optimized
+     NAVBUTTON - Ultra Compact Mobile Version
      
-     - Minimum touch target of 44px height
-     - Compact text on mobile, full text on desktop
+     - Minimum touch target of 36px height on mobile, 40px on desktop
+     - Very compact text and padding on mobile
      - Uses active: instead of hover: for touch feedback
      ───────────────────────────────────────────────────────────────────────── */
   const NavButton = ({ tab, label }: { tab: typeof activeTab, label: string }) => (
     <button 
       onClick={() => setActiveTab(tab)}
-      className={`px-2 sm:px-4 py-2.5 sm:py-2.5 text-[7px] sm:text-[10px] font-mono tracking-[0.08em] sm:tracking-[0.15em] uppercase transition-all duration-300 rounded-full whitespace-nowrap min-h-[44px] flex items-center justify-center flex-shrink-0 ${
+      className={`px-1.5 sm:px-3 py-2 sm:py-2 text-[6px] sm:text-[9px] font-mono tracking-[0.02em] sm:tracking-[0.1em] uppercase transition-all duration-300 rounded-full whitespace-nowrap min-h-[36px] sm:min-h-[40px] flex items-center justify-center flex-shrink-0 ${
         activeTab === tab 
           ? 'bg-[#2C2825] text-[#FAF8F5]' 
           : 'text-[#5C554D] active:text-[#2C2825] sm:hover:text-[#2C2825]'
@@ -276,7 +276,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-[#2C2825]">
+    {/* Root container - CRITICAL: overflow-x-hidden prevents horizontal scroll */}
+    <div className="min-h-screen bg-[#FAF8F5] text-[#2C2825] overflow-x-hidden w-full max-w-[100vw]">
       {/* SEO Head - Dynamic meta tags per language */}
       <SEOHead lang={lang} />
       
@@ -286,10 +287,10 @@ const App: React.FC = () => {
       {/* Lead Magnet Popup - Trend Report */}
       <LeadMagnetPopup lang={lang} />
       
-      {/* Subtle Background Elements */}
+      {/* Subtle Background Elements - constrained to prevent overflow */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[10%] right-[5%] w-[500px] h-[500px] bg-[#C4A484]/5 rounded-full blur-[150px]" />
-        <div className="absolute bottom-[20%] left-[10%] w-[400px] h-[400px] bg-[#D4A5A5]/5 rounded-full blur-[120px]" />
+        <div className="absolute top-[10%] right-[5%] w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-[#C4A484]/5 rounded-full blur-[150px]" />
+        <div className="absolute bottom-[20%] left-[10%] w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-[#D4A5A5]/5 rounded-full blur-[120px]" />
       </div>
 
       {/* Main content - extra padding at bottom for floating navbar + language selector */}
@@ -408,8 +409,8 @@ const App: React.FC = () => {
                 </div>
               </section>
 
-              {/* Services Bento Grid */}
-              <section className="py-24 px-6 bg-[#F5F0EA]">
+              {/* Services Bento Grid - Mobile optimized padding */}
+              <section className="py-16 sm:py-24 px-4 sm:px-6 bg-[#F5F0EA] overflow-hidden">
                 <div className="max-w-7xl mx-auto">
                   <SectionHeader 
                     label={t.services.label}
@@ -481,8 +482,8 @@ const App: React.FC = () => {
                 </div>
               </section>
 
-              {/* Districts Section */}
-              <section className="py-24 px-6">
+              {/* Districts Section - constrained padding for mobile */}
+              <section className="py-16 sm:py-24 px-4 sm:px-6 overflow-hidden">
                 <div className="max-w-7xl mx-auto">
                   <SectionHeader 
                     label={t.districts.label}
@@ -615,7 +616,7 @@ const App: React.FC = () => {
               </section>
 
               {/* Testimonial Section with Sliding Animation */}
-              <section className="py-24 px-6 bg-[#2C2825]">
+              <section className="py-16 sm:py-24 px-4 sm:px-6 bg-[#2C2825] overflow-hidden">
                 <div className="max-w-4xl mx-auto text-center">
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -628,17 +629,18 @@ const App: React.FC = () => {
                 </div>
               </section>
 
-              {/* About Section */}
-              <section className="py-24 px-6">
+              {/* About Section - Mobile optimized grid */}
+              <section className="py-16 sm:py-24 px-4 sm:px-6 overflow-hidden">
                 <div className="max-w-7xl mx-auto">
-                  <div className="grid grid-cols-12 gap-10 items-center">
+                  {/* Changed from 12-col grid to simpler flex/grid for better mobile control */}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                     <motion.div 
-                      initial={{ opacity: 0, x: -30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      className="col-span-12 lg:col-span-5"
+                      className="w-full max-w-md mx-auto lg:max-w-none"
                     >
-                      <div className="rounded-3xl overflow-hidden">
+                      <div className="rounded-2xl sm:rounded-3xl overflow-hidden">
                         <ImageSliderKenBurns 
                           images={ABOUT_IMAGES}
                           interval={5000}
@@ -650,10 +652,10 @@ const App: React.FC = () => {
                     </motion.div>
                     
                     <motion.div 
-                      initial={{ opacity: 0, x: 30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      className="col-span-12 lg:col-span-6 lg:col-start-7"
+                      transition={{ delay: 0.1 }}
                     >
                       <span className="label-micro block mb-4 text-[#C4A484]">{t.about.label}</span>
                       <h2 className="heading-display mb-6">Gülizar Ermiş</h2>
@@ -696,7 +698,7 @@ const App: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
-              className="max-w-7xl mx-auto px-6 pt-32"
+              className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-32 overflow-hidden"
             >
               <SectionHeader 
                 label={t.storesPage.label}
@@ -739,10 +741,10 @@ const App: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
-              className="pt-32 pb-20"
+              className="pt-24 sm:pt-32 pb-16 sm:pb-20 overflow-hidden"
             >
               {/* Methodology Hero */}
-              <div className="max-w-7xl mx-auto px-6 mb-24">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-16 sm:mb-24">
                 <div className="text-center">
                   <motion.span 
                     initial={{ opacity: 0, y: 20 }}
@@ -772,7 +774,7 @@ const App: React.FC = () => {
               </div>
 
               {/* Methodology Steps - 3-Step Style DNA Method */}
-              <div className="max-w-7xl mx-auto px-6 mb-24">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-16 sm:mb-24">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   {t.methodology.steps.slice(0, 3).map((step: any, index: number) => (
                     <motion.div
@@ -814,7 +816,7 @@ const App: React.FC = () => {
               </div>
 
               {/* Philosophy Section */}
-              <div className="bg-[#2C2825] py-24 px-6 mb-24">
+              <div className="bg-[#2C2825] py-16 sm:py-24 px-4 sm:px-6 mb-16 sm:mb-24">
                 <div className="max-w-4xl mx-auto">
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -835,7 +837,7 @@ const App: React.FC = () => {
               </div>
 
               {/* What Makes It Special */}
-              <div className="max-w-7xl mx-auto px-6 mb-24">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-16 sm:mb-24">
                 <SectionHeader 
                   label={t.methodology.specialLabel}
                   title={t.methodology.specialTitle}
@@ -870,7 +872,7 @@ const App: React.FC = () => {
               </div>
 
               {/* Process Timeline */}
-              <div className="bg-[#F5F0EA] py-24 px-6 mb-24">
+              <div className="bg-[#F5F0EA] py-16 sm:py-24 px-4 sm:px-6 mb-16 sm:mb-24">
                 <div className="max-w-5xl mx-auto">
                   <SectionHeader 
                     label={t.methodology.processLabel}
@@ -916,7 +918,7 @@ const App: React.FC = () => {
               </div>
 
               {/* CTA Section */}
-              <div className="max-w-4xl mx-auto px-6 text-center">
+              <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -943,57 +945,51 @@ const App: React.FC = () => {
       </main>
 
       {/* ═══════════════════════════════════════════════════════════════════════
-          BOTTOM GLASS NAVBAR - Mobile Optimized
+          BOTTOM GLASS NAVBAR - Mobile Optimized v2
           
-          Mobile fixes:
-          - Constrained max-width prevents overflow
-          - Removed logo on mobile to save space
-          - Reduced padding and gaps on small screens
-          - Simplified "Book" button text on mobile
-          - Language selector moved below with smaller buttons
-          - Safe area inset support for notched devices
+          Key fixes:
+          - Uses max-content width with max-w constraint
+          - Extremely compact on mobile with abbreviated labels
+          - No horizontal scroll - fits all screens
           ═══════════════════════════════════════════════════════════════════════ */}
       <nav 
-        className="fixed left-1/2 -translate-x-1/2 z-[100] w-[calc(100%-1rem)] sm:w-auto max-w-[calc(100vw-1rem)]"
+        className="fixed left-1/2 -translate-x-1/2 z-[100]"
         style={{
-          bottom: 'max(0.75rem, env(safe-area-inset-bottom))',
+          bottom: 'max(0.5rem, env(safe-area-inset-bottom))',
+          maxWidth: 'calc(100vw - 1rem)',
         }}
       >
-        <div className="glass px-2 sm:px-5 py-2 sm:py-3 rounded-full flex items-center justify-center gap-1 sm:gap-2 shadow-lg overflow-x-auto no-scrollbar">
+        <div className="glass px-1.5 sm:px-4 py-1.5 sm:py-2.5 rounded-full flex items-center justify-center gap-0.5 sm:gap-1.5 shadow-lg">
           {/* Logo - hidden on smaller screens */}
           <img 
             src="/logogulizar.png" 
             alt="Gülizar Ermiş Logo" 
-            className="hidden xl:block h-10 w-10 rounded-full object-contain flex-shrink-0 mr-2 sm:mr-3"
+            className="hidden xl:block h-9 w-9 rounded-full object-contain flex-shrink-0 mr-2"
           />
           
-          {/* Navigation buttons - more compact on mobile */}
+          {/* Navigation buttons - ultra compact on mobile */}
           <NavButton tab="home" label={t.nav.aperitivo} />
           <NavButton tab="experiences" label={t.nav.experiences || 'Experiences'} />
-          {/* Hide Stores on very small screens */}
-          <span className="hidden xs:inline">
-            <NavButton tab="stores" label={t.nav.stores} />
-          </span>
+          <NavButton tab="stores" label={t.nav.stores} />
           <NavButton tab="methodology" label={t.nav.methodology} />
           
-          <div className="w-px h-5 sm:h-6 bg-[#2C2825]/10 mx-0.5 sm:mx-2 flex-shrink-0" />
+          <div className="w-px h-5 sm:h-6 bg-[#2C2825]/10 mx-0.5 sm:mx-1.5 flex-shrink-0" />
           
-          {/* Book button - touch target minimum 44px */}
+          {/* Book button */}
           <button 
             onClick={() => setIsBookingModalOpen(true)}
-            className="bg-[#2C2825] text-[#FAF8F5] px-3 sm:px-5 py-2.5 sm:py-2.5 text-[8px] sm:text-[10px] font-mono tracking-[0.1em] sm:tracking-[0.15em] uppercase rounded-full active:bg-[#C4A484] sm:hover:bg-[#C4A484] transition-all whitespace-nowrap flex-shrink-0 min-h-[44px] flex items-center"
+            className="bg-[#2C2825] text-[#FAF8F5] px-2.5 sm:px-4 py-2 sm:py-2 text-[7px] sm:text-[9px] font-mono tracking-[0.05em] sm:tracking-[0.1em] uppercase rounded-full active:bg-[#C4A484] sm:hover:bg-[#C4A484] transition-all whitespace-nowrap flex-shrink-0 min-h-[36px] sm:min-h-[40px] flex items-center"
           >
-            <span className="hidden sm:inline">{t.nav.book}</span>
-            <span className="sm:hidden">Book</span>
+            Book
           </button>
           
           {/* Desktop language selector */}
-          <div className="hidden lg:flex gap-1.5 px-3 border-l border-[#2C2825]/10 ml-2 items-center">
+          <div className="hidden lg:flex gap-1 px-2 border-l border-[#2C2825]/10 ml-1.5 items-center">
             {(['en', 'tr', 'it'] as Language[]).map(l => (
               <button 
                 key={l}
                 onClick={() => changeLanguage(l)}
-                className={`text-[10px] font-mono uppercase px-3 py-1.5 rounded-full transition-all min-w-[36px] min-h-[36px] text-center flex items-center justify-center ${
+                className={`text-[9px] font-mono uppercase px-2 py-1 rounded-full transition-all min-w-[32px] min-h-[32px] text-center flex items-center justify-center ${
                   lang === l 
                     ? 'bg-[#2C2825] text-[#FAF8F5]' 
                     : 'text-[#5C554D] hover:text-[#2C2825] hover:bg-[#2C2825]/5'
@@ -1005,9 +1001,9 @@ const App: React.FC = () => {
           </div>
         </div>
         
-        {/* Mobile Language Selector - positioned below main nav */}
+        {/* Mobile Language Selector - smaller and below */}
         <div 
-          className="lg:hidden flex justify-center gap-2 mt-2"
+          className="lg:hidden flex justify-center gap-1.5 mt-1.5"
           style={{
             paddingBottom: 'env(safe-area-inset-bottom, 0px)',
           }}
@@ -1016,7 +1012,7 @@ const App: React.FC = () => {
             <button 
               key={l}
               onClick={() => changeLanguage(l)}
-              className={`text-[9px] font-mono uppercase px-3 py-1.5 rounded-full min-w-[40px] min-h-[32px] flex items-center justify-center ${
+              className={`text-[8px] font-mono uppercase px-2.5 py-1 rounded-full min-w-[32px] min-h-[28px] flex items-center justify-center ${
                 lang === l 
                   ? 'bg-[#2C2825] text-white' 
                   : 'bg-white/90 text-[#8C847A] active:bg-[#2C2825]/10'
