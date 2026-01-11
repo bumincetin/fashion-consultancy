@@ -372,9 +372,7 @@ export const TermsAndConditions: React.FC<TermsAndConditionsProps> = ({ lang, is
               will-change-transform
             "
             style={{
-              // Dynamic viewport height handles iOS Safari's address bar
-              maxHeight: '92dvh',
-              // Fallback for browsers without dvh support
+              // Dynamic viewport height with fallback for browsers without dvh support
               maxHeight: 'min(92dvh, calc(100vh - 2rem))'
             }}
           >

@@ -232,11 +232,28 @@ const App: React.FC = () => {
   
   const t = TRANSLATIONS[lang];
 
+  // Handle language routing on initial load and navigation
   useEffect(() => {
-    const path = window.location.pathname.replace(/^\/|\/$/g, '');
-    if (path === 'tr') setLang('tr');
-    else if (path === 'it') setLang('it');
-    else setLang('en');
+    const updateLanguageFromPath = () => {
+      const path = window.location.pathname.replace(/^\/|\/$/g, '');
+      if (path === 'tr') {
+        setLang('tr');
+      } else if (path === 'it') {
+        setLang('it');
+      } else {
+        setLang('en');
+      }
+    };
+    
+    // Set language on initial load
+    updateLanguageFromPath();
+    
+    // Listen for browser back/forward navigation
+    window.addEventListener('popstate', updateLanguageFromPath);
+    
+    return () => {
+      window.removeEventListener('popstate', updateLanguageFromPath);
+    };
   }, []);
 
   const changeLanguage = (newLang: Language) => {
@@ -977,12 +994,12 @@ const App: React.FC = () => {
           
           <div className="w-px h-5 sm:h-6 bg-[#2C2825]/10 mx-0.5 sm:mx-1.5 flex-shrink-0" />
           
-          {/* Book button */}
+          {/* Book button - uses translation */}
           <button 
             onClick={() => setIsBookingModalOpen(true)}
             className="bg-[#2C2825] text-[#FAF8F5] px-2.5 sm:px-4 py-2 sm:py-2 text-[7px] sm:text-[9px] font-mono tracking-[0.05em] sm:tracking-[0.1em] uppercase rounded-full active:bg-[#C4A484] sm:hover:bg-[#C4A484] transition-all whitespace-nowrap flex-shrink-0 min-h-[36px] sm:min-h-[40px] flex items-center"
           >
-            Book
+            {t.nav.book}
           </button>
           
           {/* Desktop language selector */}
