@@ -2,7 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 
+      VIEWPORT META TAG - Mobile Optimized
+      - width=device-width: Uses device width instead of desktop default (980px)
+      - initial-scale=1.0: No zoom on load
+      - viewport-fit=cover: Allows content to extend into safe areas on notched devices
+      
+      NOTE: We intentionally do NOT use maximum-scale=1.0 or user-scalable=no 
+      as they break accessibility (users should be able to zoom)
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
+    <!-- Mobile-specific meta tags -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- Theme color for mobile browser chrome -->
+    <meta name="theme-color" content="#FAF8F5" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#2C2825" media="(prefers-color-scheme: dark)">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/logogulizar.png">
@@ -190,35 +209,65 @@
     <div id="root"></div>
     
     <script>
+        /* ═══════════════════════════════════════════════════════════════════════
+           CUSTOM CURSOR - Desktop Only
+           
+           Performance optimization: Completely disabled on touch devices
+           - Saves CPU/GPU cycles on mobile
+           - Prevents unnecessary requestAnimationFrame loops
+           - Uses matchMedia for reliable touch detection
+           ═══════════════════════════════════════════════════════════════════════ */
         const follower = document.getElementById('cursor-follower');
-        let mouseX = 0, mouseY = 0;
-        let followerX = 0, followerY = 0;
         
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
+        // Detect if device has fine pointer (mouse) vs coarse pointer (touch)
+        const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        // Only initialize cursor follower on desktop devices with mouse
+        if (hasFinePointer && !prefersReducedMotion && follower) {
+            let mouseX = 0, mouseY = 0;
+            let followerX = 0, followerY = 0;
+            let animationId = null;
+            
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
 
-        // Smooth cursor following
-        function animate() {
-            followerX += (mouseX - followerX) * 0.15;
-            followerY += (mouseY - followerY) * 0.15;
-            follower.style.transform = `translate3d(${followerX - 12}px, ${followerY - 12}px, 0)`;
-            requestAnimationFrame(animate);
+            // Smooth cursor following with GPU-optimized transform
+            function animate() {
+                followerX += (mouseX - followerX) * 0.15;
+                followerY += (mouseY - followerY) * 0.15;
+                follower.style.transform = `translate3d(${followerX - 12}px, ${followerY - 12}px, 0)`;
+                animationId = requestAnimationFrame(animate);
+            }
+            animate();
+
+            // Cursor hover state
+            document.addEventListener('mouseover', (e) => {
+                if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A' || e.target.closest('button') || e.target.closest('a')) {
+                    follower.classList.add('hover');
+                }
+            });
+            document.addEventListener('mouseout', (e) => {
+                if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A' || e.target.closest('button') || e.target.closest('a')) {
+                    follower.classList.remove('hover');
+                }
+            });
+            
+            // Clean up animation when page is hidden (saves battery)
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden && animationId) {
+                    cancelAnimationFrame(animationId);
+                    animationId = null;
+                } else if (!document.hidden && !animationId) {
+                    animate();
+                }
+            });
+        } else if (follower) {
+            // Hide cursor follower on touch devices
+            follower.style.display = 'none';
         }
-        animate();
-
-        // Cursor hover state
-        document.addEventListener('mouseover', (e) => {
-            if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A' || e.target.closest('button') || e.target.closest('a')) {
-                follower.classList.add('hover');
-            }
-        });
-        document.addEventListener('mouseout', (e) => {
-            if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A' || e.target.closest('button') || e.target.closest('a')) {
-                follower.classList.remove('hover');
-            }
-        });
     </script>
 <script type="module" src="/index.tsx"></script>
 </body>

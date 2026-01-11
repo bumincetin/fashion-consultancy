@@ -562,6 +562,140 @@ select:focus, input:focus {
   }
 }
 
+/* ─────────────────────────────────────────────────────────────────────────────
+   MODAL-SPECIFIC MOBILE OPTIMIZATIONS
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Terms & Conditions Modal - Mobile Overrides */
+@media (max-width: 768px) {
+  /* Ensure modal text is always legible without zooming */
+  [role="dialog"] p,
+  [role="dialog"] h4 {
+    font-size: max(15px, 1rem) !important;
+    line-height: 1.6 !important;
+  }
+  
+  /* Modal headings should be prominent but not oversized */
+  [role="dialog"] h2,
+  [role="dialog"] h3 {
+    font-size: clamp(1.1rem, 4.5vw, 1.25rem) !important;
+  }
+  
+  /* Ensure all interactive elements in modals meet touch target size */
+  [role="dialog"] button,
+  [role="dialog"] a,
+  [role="dialog"] [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Extra small screens - further optimize modal spacing */
+@media (max-width: 375px) {
+  [role="dialog"] {
+    /* Reduce outer padding to maximize content area */
+    padding: 0.5rem !important;
+  }
+  
+  /* Tighter section spacing */
+  [role="dialog"] .space-y-6 > * + * {
+    margin-top: 1rem !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   DYNAMIC VIEWPORT HEIGHT (DVH) FALLBACKS
+   Handles iOS Safari's dynamic address bar
+   ───────────────────────────────────────────────────────────────────────────── */
+@supports (height: 100dvh) {
+  .modal-full-height {
+    max-height: 92dvh;
+  }
+}
+
+@supports not (height: 100dvh) {
+  .modal-full-height {
+    max-height: calc(100vh - 2rem);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   IMPROVED TOUCH INTERACTION STATES
+   Replace hover with active for touch devices
+   ───────────────────────────────────────────────────────────────────────────── */
+@media (hover: none) and (pointer: coarse) {
+  /* Disable hover transforms that cause "stuck" states */
+  .card:hover,
+  .btn-primary:hover,
+  .btn-secondary:hover {
+    transform: none !important;
+    box-shadow: var(--shadow-soft) !important;
+  }
+  
+  /* Active states for touch feedback */
+  .card:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+  
+  .btn-primary:active {
+    background: var(--accent-terracotta-dark);
+    transform: scale(0.97);
+  }
+  
+  .btn-secondary:active {
+    background: var(--text-primary);
+    color: var(--bg-cream);
+  }
+  
+  /* Increase tap targets globally */
+  button:not([class*="w-"]):not([class*="h-"]),
+  a:not([class*="w-"]):not([class*="h-"]),
+  [role="button"]:not([class*="w-"]):not([class*="h-"]) {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Remove sticky focus outlines on touch */
+  *:focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   CUSTOM BREAKPOINT FOR EXTRA SMALL SCREENS
+   xs: 475px - useful for small phones and landscape mobile
+   ───────────────────────────────────────────────────────────────────────────── */
+@media (min-width: 475px) {
+  .xs\:flex {
+    display: flex !important;
+  }
+  
+  .xs\:hidden {
+    display: none !important;
+  }
+  
+  .xs\:block {
+    display: block !important;
+  }
+}
+
+/* Hide by default, show on xs+ */
+.hidden.xs\:flex,
+.hidden.xs\:block {
+  display: none;
+}
+
+@media (min-width: 475px) {
+  .hidden.xs\:flex {
+    display: flex !important;
+  }
+  
+  .hidden.xs\:block {
+    display: block !important;
+  }
+}
+
 /* Print styles */
 @media print {
   .glass,
