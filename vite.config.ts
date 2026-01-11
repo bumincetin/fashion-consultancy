@@ -23,9 +23,14 @@ export default defineConfig(({ mode }) => {
         {
           name: 'generate-redirects',
           closeBundle() {
-            const redirectsContent = `/assets/* 200
-/index.html 200
-/*    /index.html   200
+            // Cloudflare Pages _redirects format: /from /to status_code
+            // Important: Order matters - more specific rules first
+            // Use 200 status for rewrites (SPA routing without URL change)
+            const redirectsContent = `/assets/* /assets/* 200
+/tr /index.html 200
+/it /index.html 200
+/en /index.html 200
+/* /index.html 200
 `;
             writeFileSync(path.resolve(__dirname, 'dist/_redirects'), redirectsContent);
           }
