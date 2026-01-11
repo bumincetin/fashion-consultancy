@@ -19,20 +19,22 @@ export default defineConfig(({ mode }) => {
       },
       plugins: [
         react(),
-        // Plugin to generate correct _redirects file for Cloudflare Pages
+        // Plugin to generate _routes.json for Cloudflare Pages SPA routing
         {
-          name: 'generate-redirects',
+          name: 'generate-routes',
           closeBundle() {
-            // Cloudflare Pages _redirects format: /from /to status_code
-            // Important: Order matters - more specific rules first
-            // Use 200 status for rewrites (SPA routing without URL change)
-            const redirectsContent = `/assets/* /assets/* 200
-/tr /index.html 200
-/it /index.html 200
-/en /index.html 200
-/* /index.html 200
-`;
-            writeFileSync(path.resolve(__dirname, 'dist/_redirects'), redirectsContent);
+            // _routes.json is the modern Cloudflare Pages approach for SPA routing
+            // "include" specifies which paths should be handled by the SPA
+            // "exclude" specifies static assets that should be served directly
+            const routesConfig = {
+              version: 1,
+              include: ["/*"],
+              exclude: ["/assets/*", "/*.jpg", "/*.png", "/*.ico", "/*.svg", "/*.css", "/*.js"]
+            };
+            writeFileSync(
+              path.resolve(__dirname, 'dist/_routes.json'), 
+              JSON.stringify(routesConfig, null, 2)
+            );
           }
         }
       ],

@@ -1,8 +1,0 @@
-# Cloudflare Pages SPA Routing
-# Format: /from /to status_code
-# Order matters - more specific rules first
-/assets/* /assets/* 200
-/tr /index.html 200
-/it /index.html 200
-/en /index.html 200
-/* /index.html 200
