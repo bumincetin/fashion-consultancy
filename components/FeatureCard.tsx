@@ -8,14 +8,14 @@
 
 import React, { useRef, ReactNode } from 'react';
 import { motion } from 'framer-motion';
-import { LucideIcon } from 'lucide-react';
+import { Icon as PhosphorIcon } from '@phosphor-icons/react';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // TYPES
 // ─────────────────────────────────────────────────────────────────────────────
 
 export interface FeatureCardProps {
-  icon: LucideIcon | ReactNode;
+  icon: PhosphorIcon | ReactNode;
   title: string;
   description: string;
   label?: string;

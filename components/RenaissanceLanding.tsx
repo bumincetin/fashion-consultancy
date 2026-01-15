@@ -9,17 +9,17 @@
 import React, { useState, useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { 
-  Sparkles, 
-  Zap, 
+  Sparkle, 
+  Lightning, 
   Camera, 
-  Layers, 
+  Stack, 
   Globe, 
   Compass, 
   Palette, 
-  Wand2,
+  MagicWand,
   ArrowRight,
   Play
-} from 'lucide-react';
+} from '@phosphor-icons/react';
 
 import { HeroSection, GlassNavbar, NavItem } from './HeroSection';
 import { BentoGrid, BentoItem } from './BentoGrid';
@@ -152,7 +152,7 @@ export const RenaissanceLanding: React.FC = () => {
   // Feature data
   const features = [
     {
-      icon: Zap,
+      icon: Lightning,
       title: 'RenAIssance Intelligence',
       description: 'Proprietary AI blending historic fashion archives with contemporary Milanese trends.',
       glowColor: 'gold' as const,
@@ -176,13 +176,13 @@ export const RenaissanceLanding: React.FC = () => {
       glowColor: 'emerald' as const,
     },
     {
-      icon: Layers,
+      icon: Stack,
       title: 'Layered Experience',
       description: 'Multi-dimensional styling that evolves with seasons and occasions.',
       glowColor: 'white' as const,
     },
     {
-      icon: Wand2,
+      icon: MagicWand,
       title: 'Style Alchemy',
       description: 'Transform everyday pieces into extraordinary ensembles.',
       glowColor: 'gold' as const,
@@ -223,7 +223,7 @@ export const RenaissanceLanding: React.FC = () => {
             {/* Feature Cards */}
             <BentoItem size="1x1" glowColor="gold">
               <FeatureCard
-                icon={Zap}
+                icon={Lightning}
                 title="RenAIssance Intelligence"
                 description="Proprietary AI blending historic fashion archives with current Milanese trends."
                 glowColor="gold"
@@ -384,7 +384,7 @@ export const RenaissanceLanding: React.FC = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Sparkles size={16} />
+                  <Sparkle size={16} />
                   Generate My Style Profile
                 </motion.button>
                 

@@ -2,27 +2,27 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   ArrowRight, 
-  Instagram, 
-  Mail,
-  ChevronRight,
+  InstagramLogo, 
+  Envelope,
+  CaretRight,
   Globe,
   MapPin,
   Star,
   Heart,
-  Sparkles,
+  Sparkle,
   Users,
   Compass,
   Palette,
-  MessageCircle,
-  CheckCircle2,
+  ChatCircle,
+  CheckCircle,
   Scissors,
   Crown,
   Gem,
   Camera,
   Clock,
   Ticket,
-  Map
-} from 'lucide-react';
+  MapTrifold
+} from '@phosphor-icons/react';
 import { motion, AnimatePresence, useInView, useScroll, useTransform } from 'framer-motion';
 import { FEATURED_STORES } from './constants';
 import { StoreCard } from './components/StoreCard';
@@ -284,9 +284,9 @@ const App: React.FC = () => {
 
   // Methodology steps icons - 3-Step Style DNA Method
   const methodologyIcons = [
-    <MessageCircle key="1" size={24} />, // Discovery - Psychology
+    <ChatCircle key="1" size={24} />, // Discovery - Psychology
     <Compass key="2" size={24} />,       // Curation - Architecture
-    <Sparkles key="3" size={24} />,      // Integration - Wardrobe
+    <Sparkle key="3" size={24} />,      // Integration - Wardrobe
   ];
 
   const handleBookExperience = (serviceId: string) => {
@@ -925,7 +925,7 @@ const App: React.FC = () => {
 
                         {/* Timeline Dot */}
                         <div className="hidden md:flex w-12 h-12 rounded-full bg-[#C4A484] items-center justify-center flex-shrink-0 z-10">
-                          <CheckCircle2 size={20} className="text-white" />
+                          <CheckCircle size={20} className="text-white" />
                         </div>
 
                         {/* Spacer */}
@@ -1110,14 +1110,14 @@ const App: React.FC = () => {
                   className="w-11 h-11 flex items-center justify-center rounded-full hover:bg-white/5 active:bg-white/10 transition-colors"
                   aria-label="Instagram"
                 >
-                  <Instagram size={20} className="text-[#FAF8F5]/60" />
+                  <InstagramLogo size={20} className="text-[#FAF8F5]/60" />
                 </a>
                 <a 
                   href="mailto:vestilizamilano@gmail.com"
                   className="w-11 h-11 flex items-center justify-center rounded-full hover:bg-white/5 active:bg-white/10 transition-colors"
                   aria-label="Email"
                 >
-                  <Mail size={20} className="text-[#FAF8F5]/60" />
+                  <Envelope size={20} className="text-[#FAF8F5]/60" />
                 </a>
                 <a 
                   href="#"

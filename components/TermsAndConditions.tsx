@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Shield, FileText } from 'lucide-react';
+import { X, Shield, FileText } from '@phosphor-icons/react';
 import { Language } from '../types';
 
 interface TermsAndConditionsProps {

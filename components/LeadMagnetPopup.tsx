@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Download, Mail, ArrowRight, Check, Sparkles, FileText, Loader2 } from 'lucide-react';
+import { X, DownloadSimple, Envelope, ArrowRight, Check, Sparkle, FileText, CircleNotch } from '@phosphor-icons/react';
 import { Language } from '../types';
 import { TermsAndConditions } from './TermsAndConditions';
 import { sendTrendReport } from '../services/emailService';
@@ -230,7 +230,7 @@ export const LeadMagnetPopup: React.FC<LeadMagnetPopupProps> = ({ lang }) => {
                   transition={{ delay: 0.2, type: 'spring' }}
                   className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#C4A484]/20 flex items-center justify-center mx-auto mb-4"
                 >
-                  <Sparkles className="w-6 h-6 sm:w-7 sm:h-7 text-[#C4A484]" />
+                  <Sparkle className="w-6 h-6 sm:w-7 sm:h-7 text-[#C4A484]" />
                 </motion.div>
                 
                 <h3 className="text-xl sm:text-2xl font-serif italic text-white mb-1 pr-8">
@@ -275,7 +275,7 @@ export const LeadMagnetPopup: React.FC<LeadMagnetPopupProps> = ({ lang }) => {
                       {/* Email form - stacks on small screens */}
                       <div className="flex flex-col sm:flex-row gap-2 mb-4">
                         <div className="relative flex-1">
-                          <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-[#9e968c]" size={16} />
+                          <Envelope className="absolute left-4 top-1/2 -translate-y-1/2 text-[#9e968c]" size={16} />
                           <input
                             type="email"
                             value={email}
@@ -292,10 +292,10 @@ export const LeadMagnetPopup: React.FC<LeadMagnetPopupProps> = ({ lang }) => {
                           className="bg-[#2C2825] text-[#FAF8F5] px-6 py-4 rounded-xl text-xs font-mono uppercase tracking-wider active:bg-[#C4A484] sm:hover:bg-[#C4A484] transition-all flex items-center justify-center gap-2 disabled:opacity-50 min-h-[52px] w-full sm:w-auto"
                         >
                           {isLoading ? (
-                            <Loader2 size={16} className="animate-spin" />
+                            <CircleNotch size={16} className="animate-spin" />
                           ) : (
                             <>
-                              <Download size={16} />
+                              <DownloadSimple size={16} />
                               <span className="sm:hidden">{content.buttonText}</span>
                             </>
                           )}

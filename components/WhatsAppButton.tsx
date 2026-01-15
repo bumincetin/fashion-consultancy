@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MessageCircle } from 'lucide-react';
+import { WhatsappLogo } from '@phosphor-icons/react';
 
 /* ═══════════════════════════════════════════════════════════════════════════
    WHATSAPP FLOATING BUTTON
@@ -39,7 +39,7 @@ export const WhatsAppButton: React.FC = () => {
       
       {/* Button - 56x56px on mobile (meets 44px minimum), 64x64px on desktop */}
       <div className="relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] text-white shadow-lg active:shadow-md active:scale-95 transition-all">
-        <MessageCircle className="w-7 h-7 sm:w-8 sm:h-8" fill="white" />
+        <WhatsappLogo className="w-7 h-7 sm:w-8 sm:h-8" weight="fill" />
       </div>
       
       {/* Tooltip - hidden on mobile/touch devices */}

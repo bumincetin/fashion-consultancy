@@ -7,10 +7,10 @@ import {
   Check, 
   Star,
   ShoppingBag,
-  Sparkles,
-  Video,
-  Map
-} from 'lucide-react';
+  Sparkle,
+  VideoCamera,
+  MapTrifold
+} from '@phosphor-icons/react';
 import { Language } from '../types';
 
 interface ExperiencesPageProps {
@@ -43,7 +43,7 @@ const EXPERIENCES = {
     },
     {
       id: 'wardrobe',
-      icon: Sparkles,
+      icon: Sparkle,
       name: 'Wardrobe Transformation',
       tagline: 'Redefine Your Personal Style DNA',
       duration: '6-8 hours',
@@ -64,7 +64,7 @@ const EXPERIENCES = {
     },
     {
       id: 'cityTour',
-      icon: Map,
+      icon: MapTrifold,
       name: 'Milan Cultural & Fashion Journey',
       tagline: 'Where History Meets Haute Couture',
       duration: 'Full Day (8 hours)',
@@ -107,7 +107,7 @@ const EXPERIENCES = {
     },
     {
       id: 'virtual',
-      icon: Video,
+      icon: VideoCamera,
       name: 'Virtual Style Consultation',
       tagline: 'Expert Guidance, Wherever You Are',
       duration: '60-90 minutes',
@@ -151,7 +151,7 @@ const EXPERIENCES = {
     },
     {
       id: 'wardrobe',
-      icon: Sparkles,
+      icon: Sparkle,
       name: 'Gardırop Dönüşümü',
       tagline: 'Kişisel Stil DNA\'nızı Yeniden Tanımlayın',
       duration: '6-8 saat',
@@ -172,7 +172,7 @@ const EXPERIENCES = {
     },
     {
       id: 'cityTour',
-      icon: Map,
+      icon: MapTrifold,
       name: 'Milano Kültür & Moda Yolculuğu',
       tagline: 'Tarihin Haute Couture ile Buluştuğu Yer',
       duration: 'Tam Gün (8 saat)',
@@ -215,7 +215,7 @@ const EXPERIENCES = {
     },
     {
       id: 'virtual',
-      icon: Video,
+      icon: VideoCamera,
       name: 'Sanal Stil Danışmanlığı',
       tagline: 'Uzman Rehberliği, Nerede Olursanız Olun',
       duration: '60-90 dakika',
@@ -259,7 +259,7 @@ const EXPERIENCES = {
     },
     {
       id: 'wardrobe',
-      icon: Sparkles,
+      icon: Sparkle,
       name: 'Trasformazione del Guardaroba',
       tagline: 'Ridefinisci il Tuo DNA di Stile Personale',
       duration: '6-8 ore',
@@ -280,7 +280,7 @@ const EXPERIENCES = {
     },
     {
       id: 'cityTour',
-      icon: Map,
+      icon: MapTrifold,
       name: 'Viaggio Culturale & Moda Milano',
       tagline: 'Dove la Storia Incontra l\'Haute Couture',
       duration: 'Giornata Intera (8 ore)',
@@ -323,7 +323,7 @@ const EXPERIENCES = {
     },
     {
       id: 'virtual',
-      icon: Video,
+      icon: VideoCamera,
       name: 'Consulenza di Stile Virtuale',
       tagline: 'Guida Esperta, Ovunque Tu Sia',
       duration: '60-90 minuti',

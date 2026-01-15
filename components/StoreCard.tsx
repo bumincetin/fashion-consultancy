@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Store } from '../types';
-import { MapPin, ArrowUpRight } from 'lucide-react';
+import { MapPin, ArrowUpRight } from '@phosphor-icons/react';
 import { motion } from 'framer-motion';
 
 interface StoreCardProps {

@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { X, Calendar, Check, ArrowRight, Mail, Loader2, Clock, MapPin, AlertCircle } from 'lucide-react';
+import { X, Calendar, Check, ArrowRight, Envelope, CircleNotch, Clock, MapPin, WarningCircle } from '@phosphor-icons/react';
 import { Language } from '../types';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TRANSLATIONS } from '../translations';
@@ -387,7 +387,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, lan
                       <Clock className="absolute right-5 top-1/2 transform -translate-y-1/2 text-[#8C847A] pointer-events-none" size={16} />
                       {checkingAvailability && (
                         <div className="absolute right-12 top-1/2 transform -translate-y-1/2">
-                          <Loader2 className="animate-spin text-[#C4A484]" size={16} />
+                          <CircleNotch className="animate-spin text-[#C4A484]" size={16} />
                         </div>
                       )}
                       {errors.time && (
@@ -395,7 +395,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, lan
                       )}
                       {availabilityError && !checkingAvailability && (
                         <div className="mt-2 flex items-start gap-2 p-3 bg-[#D4A5A5]/10 border border-[#D4A5A5]/30 rounded-lg">
-                          <AlertCircle size={16} className="text-[#D4A5A5] flex-shrink-0 mt-0.5" />
+                          <WarningCircle size={16} className="text-[#D4A5A5] flex-shrink-0 mt-0.5" />
                           <p className="text-xs text-[#D4A5A5]">{availabilityError}</p>
                         </div>
                       )}
