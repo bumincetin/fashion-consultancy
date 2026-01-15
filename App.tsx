@@ -17,7 +17,7 @@ import {
   CheckCircle,
   Scissors,
   Crown,
-  Gem,
+  Diamond,
   Camera,
   Clock,
   Ticket,
@@ -880,7 +880,7 @@ const App: React.FC = () => {
                         transition={{ type: "spring", stiffness: 300 }}
                       >
                         {index === 0 && <Users size={28} className="text-[#C4A484]" />}
-                        {index === 1 && <Gem size={28} className="text-[#C4A484]" />}
+                        {index === 1 && <Diamond size={28} className="text-[#C4A484]" />}
                         {index === 2 && <Heart size={28} className="text-[#C4A484]" />}
                       </motion.div>
                       <h3 className="text-xl font-serif italic text-[#2C2825] mb-3">{feature.title}</h3>
